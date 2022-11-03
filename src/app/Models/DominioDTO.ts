@@ -1,0 +1,22 @@
+export interface ResultadoExamenPorDominioDTO{
+    dominio1:number,
+    dominio2:number,
+    dominio3:number,
+    dominio4:number,
+    dominio5:number,
+    dominio6:number,
+    dominio7:number,
+    dominio8:number,
+    dominio9:number,
+    dominio10:number,
+    dominio11:number,
+    dominio12:number,
+    dominio13:number,
+    dominio14:number,
+    dominio15:number,
+    dominio16:number,
+    dominio17:number,
+    dominio18:number,
+    dominio19:number,
+  }
+  

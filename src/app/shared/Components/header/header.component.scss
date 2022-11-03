@@ -96,27 +96,27 @@
   .text {
     text-decoration: underline;
   }
-  // .iconhome {
-  //   background-image: url("/../../../assets/iconos/InicioSelect.svg");
-  // }
-  // .iconestudio{
-  //   background-image: url("../../../../assets/iconos/book.svg");
-  // }
-  // .iconentrenamiento{
-  //   background-image: url("../../../../assets/iconos/trainer_Icono.svg");
-  // }
-  // .iconexamen{
-  //   background-image: url("../../../../assets/iconos/check.svg");
-  // }
-  // .iconsguardadas{
-  //   background-image: url("../../../../assets/iconos/save.svg");
-  // }
-  // .iconresultado{
-  //   background-image: url("../../../../assets/iconos/statistic.svg");
-  // }
-  // .iconranking{
-  //   background-image: url("../../../../assets/iconos/star.svg");
-  // }
+  .iconhome {
+    background-image: url("/../../../assets/iconos/InicioSelect.svg");
+  }
+  .iconestudio{
+    background-image: url("../../../../assets/iconos/book.svg");
+  }
+  .iconentrenamiento{
+    background-image: url("../../../../assets/iconos/trainer_Icono.svg");
+  }
+  .iconexamen{
+    background-image: url("../../../../assets/iconos/check.svg");
+  }
+  .iconsguardadas{
+    background-image: url("../../../../assets/iconos/save.svg");
+  }
+  .iconresultado{
+    background-image: url("../../../../assets/iconos/statistic.svg");
+  }
+  .iconranking{
+    background-image: url("../../../../assets/iconos/star.svg");
+  }
 }
 .buttonMenuHeader {
   display: flex !important;
@@ -135,27 +135,27 @@
     background-position: center;
     background-repeat: no-repeat
   }
-  // .iconhome {
-  //   background-image: url("../../../../assets/iconos/InicioNoSelect.svg");;
-  // }
-  // .iconestudio{
-  //   background-image: url("../../../../assets/iconos/ModoEstudioNoSelect.svg");
-  // }
-  // .iconentrenamiento{
-  //   background-image: url("../../../../assets/iconos/ModoEntrenamientoNoSelect.svg");
-  // }
-  // .iconexamen{
-  //   background-image: url("../../../../assets/iconos/ModoExamenNoSelect.svg");
-  // }
-  // .iconsguardadas{
-  //   background-image: url("../../../../assets/iconos/SimulacionesGuardadasNoSelect.svg");
-  // }
-  // .iconresultado{
-  //   background-image: url("../../../../assets/iconos/ResultadosDeSimulacionesNoSelect.svg");
-  // }
-  // .iconranking{
-  //   background-image: url("../../../../assets/iconos/RankingNoSelect.svg");
-  // }
+  .iconhome {
+    background-image: url("../../../../assets/iconos/InicioNoSelect.svg");;
+  }
+  .iconestudio{
+    background-image: url("../../../../assets/iconos/ModoEstudioNoSelect.svg");
+  }
+  .iconentrenamiento{
+    background-image: url("../../../../assets/iconos/ModoEntrenamientoNoSelect.svg");
+  }
+  .iconexamen{
+    background-image: url("../../../../assets/iconos/ModoExamenNoSelect.svg");
+  }
+  .iconsguardadas{
+    background-image: url("../../../../assets/iconos/SimulacionesGuardadasNoSelect.svg");
+  }
+  .iconresultado{
+    background-image: url("../../../../assets/iconos/ResultadosDeSimulacionesNoSelect.svg");
+  }
+  .iconranking{
+    background-image: url("../../../../assets/iconos/RankingNoSelect.svg");
+  }
 }
 .iconOpen {
   width: 25px;
@@ -169,7 +169,7 @@
   top: 20px;
   right: 10px;
   box-shadow: 1px 2px 1px 1px rgb(0 0 0 / 20%);
-  // background: url("../../../../assets/iconos/FlechaIzquierda.svg");
+  background: url("../../../../assets/iconos/FlechaIzquierda.svg");
   background-color: #ff5470;
   background-size: 50%;
   background-repeat: no-repeat;
@@ -177,7 +177,7 @@
   cursor: pointer;
 }
 .MenuIcon {
-  // background: url("../../../../assets/iconos/FlechaDerecha.svg") !important;
+  background: url("../../../../assets/iconos/FlechaDerecha.svg") !important;
   background-color: #ff5470 !important;
   background-size: 50% !important;
   background-repeat: no-repeat !important;

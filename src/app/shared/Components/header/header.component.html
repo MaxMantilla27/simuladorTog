@@ -4,11 +4,11 @@
     mat-icon-button [matMenuTriggerFor]="menu" #triger="matMenuTrigger" (click)="OpenMenu()">
       <mat-icon  style="font-size: 35px;">menu</mat-icon>
     </button>
-    <img style="height:50px" src="../../../assets/imagenes/logotipo-CCNA-Tento.svg" alt="">
+    <img style="height:50px" src="../../../assets/imagenes/logotipo-TOGAF-Tento.svg" alt="">
 
   </div>
   <div class="avatar">
-    <img  [src]="" alt="">
+    <img  [src]="urlAvatar" alt="">
     <div mat-icon-button [matMenuTriggerFor]="logout" ><span id="name-avatar">{{NombreAlumno}}</span>  <i class="material-icons">arrow_drop_down</i></div>
   </div>
 </mat-toolbar>

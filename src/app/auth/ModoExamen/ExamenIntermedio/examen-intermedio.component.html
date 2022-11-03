@@ -1,0 +1,220 @@
+<div style="background: white">
+    <div class="container" style="width: 80%">
+      <div style="padding: 0.75rem 1.25rem">
+        <div class="container">
+          <div
+            class="rowpaddAv breadcrumb"
+            style="padding-top: 0px !important; padding-bottom: 0px !important"
+          >
+            <app-miga-pan [items]="migaPan"></app-miga-pan>
+          </div>
+        </div>
+        <div style="display: flex">
+          <img
+            src="../../../assets/iconos/ModoExamenSelect.svg"
+            style="height: 35px; margin-right: 10px"
+          />
+          <div class="titulo">Modo Examen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="ExamenResultado != undefined && Examen != undefined">
+    <div
+      class="container"
+      style="width: 80%; padding-bottom: 10px; padding-top: 40px"
+    >
+      <div style="padding-top: 20px">
+        <div id="datos" style="display: block">
+          <div class="row">
+            <div class="col-8 col-sm-9">
+              <div
+                class="card"
+                style="padding: 30px; border-radius: 20px; background: white"
+              >
+                <div
+                  class="card-body subtitulo"
+                  style="
+                    border-bottom: 1px solid #e4e4e4;
+                    border-radius: 20px 20px 0px 0px;
+                    padding: 0px;
+                  "
+                >
+                  <h2>
+                    <img
+                      style="margin-right: 10px"
+                      src="../../../../assets/iconos/data.svg"
+                      height="40"
+                    />
+                    <span class="titulo">Datos de la simulación</span>
+                  </h2>
+                </div>
+                <div class="card-body">
+                  <div
+                    class="card-text btn-block Seleccion"
+                    style="display: flex"
+                  >
+                    <b>Nombre: </b>
+                    <div
+                      style="color: #4a4a4a; font-weight: 400; margin-left: 10px"
+                    >
+                      {{ NombreExamen }}
+                    </div>
+                  </div>
+                  <div
+                    class="card-text btn-block Seleccion"
+                    style="display: flex"
+                  >
+                    <b>Fecha de inicio: </b>
+                    <div
+                      style="color: #4a4a4a; font-weight: 400; margin-left: 10px"
+                    >
+                      {{ Examen.fechaInicio | date: "dd/MM/yyyy" }} -
+                      {{ Examen.fechaInicio | date: "HH:mm" }}
+                    </div>
+                  </div>
+                  <div
+                    class="card-text btn-block Seleccion"
+                    style="display: flex"
+                  >
+                    <b>Fecha de culminación: </b>
+                    <div
+                      style="color: #4a4a4a; font-weight: 400; margin-left: 10px"
+                    >
+                      {{ Examen.fechaModificacion | date: "dd/MM/yyyy" }} -
+                      {{ Examen.fechaModificacion | date: "HH:mm" }}
+                    </div>
+                  </div>
+                  <div
+                    class="card-text btn-block Seleccion"
+                    style="display: flex"
+                  >
+                    <b>Cantidad de preguntas: </b>
+                    <div
+                      style="color: #4a4a4a; font-weight: 400; margin-left: 10px"
+                    >
+                      Nivel {{ Examen.idSimuladorTogNivel }}:
+                      {{ Examen.preguntasRespondidas }}
+                    </div>
+                  </div>
+                  <div
+                    class="card-text btn-block Seleccion"
+                    style="display: flex"
+                  >
+                    <b>Numero intento: </b>
+                    <div
+                      style="color: #4a4a4a; font-weight: 400; margin-left: 10px"
+                    >
+                      {{ NumeroIntento }}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="
+                    margin-left: 20px;
+                    font-size: 13px;
+                    color: #706e81;
+                    padding-bottom: 20px;
+                  "
+                >
+                  * Nota: Preguntas pertenecientes a una versión anterior, puede
+                  que no contengan video de retroalimentación
+                </div>
+                <div style="margin-bottom: 20px">
+                  <app-dona-puntos [Puntos]="Examen.desempenio"></app-dona-puntos>
+                </div>
+                <div *ngIf="Examen.desempenio>=55">
+                    <div class="percentilContentReporte">
+                        <img
+                          src="../../../../assets/iconos/feliz_2.svg"
+                          style="height: 30px; margin-right: 20px"
+                        />
+                        <div>
+                          ¡Felicidades, has aprobado!, puedes continuar con el Nivel 2
+                        </div>  
+                    </div>
+                    <div class="col-md-3">
+                        <div style="padding-top: 10px;">
+                            <app-default-button  [confs]="{color:'primary',titulo:'Continuar con el nivel 2'}"
+                          [style]="'width:100%;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenPregunta/'+IdExamenNivel2" ></app-default-button>
+                        </div>
+                    </div>         
+                </div>
+                <div *ngIf="Examen.desempenio<=54">
+                    <div class="percentilContentReporte">
+                        <img
+                          src="../../../../assets/iconos/triste-02.svg"
+                          style="height: 30px; margin-right: 20px"
+                        />
+                        <div>
+                          No lograste aprobar el Nivel 1, no puedes pasar al Nivel 2 
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="padding-top: 10px;">
+                            <app-default-button  [confs]="{color:'primary',titulo:'Ver resultados'}"
+                          [style]="'width:100%;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenReporte/'+Examen.id" ></app-default-button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 col-sm-3">
+              <div
+                class="card"
+                style="
+                  border-radius: 20px;
+                  background: #0aaff1;
+                  border: solid 0px;
+                "
+              >
+                <div
+                  class="card-body"
+                  style="text-align: center; padding: 10px 0px"
+                >
+                  <b
+                    style="
+                      color: white;
+                      font-size: 20px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                    ><i
+                      class="fa fa-play"
+                      style="font-size: 5px; margin-right: 5px"
+                    ></i>
+                    TIEMPO UTILIZADO</b
+                  >
+                  <div
+                    style="
+                      color: white;
+                      font-size: 90px;
+                      font-weight: 600;
+                      margin: -10px 0px;
+                    "
+                    id="TiempoMinuto"
+                  >
+                    {{ MinutoMostrar }}
+                  </div>
+                  <b style="color: #fff000">MINUTOS</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+<ng-container *ngIf="ExamenResultado == undefined">
+  <div class="container" style="width: 80%">
+    <div style="padding: 0.75rem 1.25rem; width: 100%; height: 450px">
+      <div style="margin-top: 100px; display: flex; justify-content: center">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div style="margin-top: 20px; text-align: center">
+        Los resultados se están cargando ...
+      </div>
+    </div>
+  </div>
+</ng-container>

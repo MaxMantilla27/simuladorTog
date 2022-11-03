@@ -5,32 +5,47 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { HeaderComponent } from './Components/header/header.component';
-import { MigaPanComponent } from './MigaPan/miga-pan.component';
+import { SafeHtmlPipe } from './Pipes/safe-html.pipe';
 import { DefaultButtonComponent } from './Buttons/default-button/default-button.component';
 import { LinkButtonComponent } from './Buttons/link-button/link-button.component';
 import { BarrasComponent } from './Charts/Barras/barras.component';
+import { LineComponent } from './Charts/Line/line.component';
 import { DonaComponent } from './Charts/Dona/dona.component';
 import { DonaPuntosComponent } from './Charts/DonaPuntos/dona-puntos.component';
-import { LineComponent } from './Charts/Line/line.component';
 import { PieComponent } from './Charts/Pie/pie.component';
+import { MigaPanComponent } from './MigaPan/miga-pan.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { SafeHtmlPipe } from './Pipes/safe-html.pipe';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { NgChartsModule } from 'ng2-charts';
+import { MatProgressBarModule} from '@angular/material/progress-bar';
+import { Barras1Component } from './Charts/Barras1/barras1.component';
+import { Barras2Component } from './Charts/Barras2/barras2.component';
+import { DonaPuntos2Component } from './Charts/DonaPuntos2/dona-puntos2.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    MigaPanComponent,
+    SafeHtmlPipe,
     DefaultButtonComponent,
     LinkButtonComponent,
     BarrasComponent,
+    LineComponent,
     DonaComponent,
     DonaPuntosComponent,
-    LineComponent,
     PieComponent,
-    SafeHtmlPipe
+    MigaPanComponent,
+    Barras1Component,
+    Barras2Component,
+    DonaPuntos2Component
+
+
   ],
   imports: [
     CommonModule,
@@ -40,10 +55,16 @@ import { SafeHtmlPipe } from './Pipes/safe-html.pipe';
     MatMenuModule,
 
     RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    FormsModule,
-    ReactiveFormsModule
+    MatCardModule,
+    NgChartsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
   exports:[
     MatToolbarModule,
@@ -52,11 +73,27 @@ import { SafeHtmlPipe } from './Pipes/safe-html.pipe';
     MatMenuModule,
     HeaderComponent,
     RouterModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DefaultButtonComponent,
+    MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    DefaultButtonComponent,
-    FormsModule,
-    ReactiveFormsModule
+    MatCardModule,
+    MigaPanComponent,
+    MatSelectModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    PieComponent,
+    DonaComponent,
+    BarrasComponent,
+    Barras1Component,
+    Barras2Component,
+    LineComponent,
+    DonaPuntosComponent,
+    DonaPuntos2Component,
+    SafeHtmlPipe
   ]
 })
 export class SharedModule { }

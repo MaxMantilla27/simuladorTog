@@ -1,0 +1,30 @@
+.subtitulo {
+    font-size: 20px;
+    color: #878787;
+    font-weight: 700;
+  }
+  .Seleccion{
+    color: #4a4a49;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  ::ng-deep .mat-progress-bar-fill::after {
+    background: #00C356;
+  }
+  ::ng-deep .mat-progress-bar {
+    border-radius: 10px;
+  }
+  .titulo {
+    font-size: 30px;
+    color: #4a4a49 !important;
+    font-weight: 700 !important;
+  }
+  .text-resultado{
+    display: block;
+    font-size: 13px;
+    color: #706E81;
+    background-color: #FFFDEE;
+    padding: 8px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-miga-pan',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MigaPanComponent implements OnInit {
 
+  public tipo: any
+
+  @Input()
+  items: any
   constructor() { }
 
+  @Output()
+  OnClicked: EventEmitter<any> = new EventEmitter<any>();
   ngOnInit(): void {
+
+    this.tipo = 'secondary'
   }
 
 }
