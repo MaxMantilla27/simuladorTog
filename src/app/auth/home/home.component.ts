@@ -82,6 +82,8 @@ export class HomeComponent implements OnInit {
   public Puntos=0;
   public Puntos2=0;
   public PuntosNivel=0;
+  public PuntosNivelMaximo=0;
+  public PuntosNivelPromedio=0;
   public TotalPuntos=0;
   public ResultadoDominio1=0;
   public ResultadoDominio2=0;
@@ -123,11 +125,14 @@ export class HomeComponent implements OnInit {
     dominio17:0,
     dominio18:0,
     dominio19:0
-    
+
   }
   public Dominio:any;
   public DominioNivel1:any;
   public DominioNivel2:any;
+  public ResultadosPorDominioV2:any;
+  public ResultadosPorDominioV2N1:Array<any>=[];
+  public ResultadosPorDominioV2N2:Array<any>=[];
 
   ngOnInit(): void {
 
@@ -136,8 +141,9 @@ export class HomeComponent implements OnInit {
       this.ObtenerMejorExamenPorUsuario();
       this.ObtenerNivelUsuario();
       this.ListaExamenesPorModo();
-      this.ObtenerPromedioDominioPorModo();
+      //this.ObtenerPromedioDominioPorModo();
       this.ListaDominioCombo();
+      this.ObtenerPromedioDominioPorModoV2();
     }
   }
 
@@ -177,7 +183,7 @@ export class HomeComponent implements OnInit {
         this.ExamenesCompletados=0
         this.ExamenesActivos=0
       }
-    }); 
+    });
   }
   ObtenerMejorExamenPorUsuarioNivel2(){
     this.MejorExamenEnvio.idSimuladorTogNivel=2;
@@ -203,7 +209,7 @@ export class HomeComponent implements OnInit {
         this.ExamenesActivos=0
       }
     });
-    
+
   }
   ObtenerNivelUsuario(){
     this._ExamenService.ObtenerNivelUsuario().subscribe({
@@ -211,6 +217,8 @@ export class HomeComponent implements OnInit {
         this.NivelUsuario=x.rango.nivel;
         this.SiguienteNivelUsuario=x.rango.siguienteNivel;
         this.PuntosNivel = x.puntosNivel;
+        this.PuntosNivelMaximo = x.maximo;
+        this.PuntosNivelPromedio = x.promedio;
         this.TotalPuntos=x.rango.hasta
       }
     })
@@ -248,8 +256,28 @@ export class HomeComponent implements OnInit {
         console.log(x)
         if(x!=null){
           this.ResultadosPorDominio=x
-          
+
         }
+      }
+    })
+  }
+
+  ObtenerPromedioDominioPorModoV2(){
+    this._ExamenService.ObtenerPromedioDominioPorModoV2(1,11).subscribe({
+      next:(x)=>{
+        this.ResultadosPorDominioV2=x
+        if(this.ResultadosPorDominioV2!=null){
+          this.ResultadosPorDominioV2.forEach((rd:any) => {
+            rd.Categoria=rd.leyenda.split('T')[1];
+            if(rd.idSimuladorTogNivel==1){
+              this.ResultadosPorDominioV2N1.push(rd)
+            }else{
+              this.ResultadosPorDominioV2N2.push(rd)
+            }
+          });
+        }
+        console.log(this.ResultadosPorDominioV2N1)
+        console.log(this.ResultadosPorDominioV2N2)
       }
     })
   }
@@ -260,8 +288,6 @@ export class HomeComponent implements OnInit {
         this.Dominio=x;
       }
     })
-
   }
-
 }
 

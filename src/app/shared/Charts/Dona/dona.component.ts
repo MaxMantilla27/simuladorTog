@@ -79,7 +79,7 @@ export class DonaComponent implements OnInit {
     this.doughnutChartData={
       labels:["",""],
       datasets: [{
-        data: [ this.Puntos,this.TotalPuntos-this.Puntos],
+        data: [ this.Puntos, (this.TotalPuntos>this.Puntos?(this.TotalPuntos-this.Puntos):0)],
         backgroundColor: [
           '#00C356',
           '#E8E8E5'

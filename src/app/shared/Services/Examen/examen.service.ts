@@ -30,6 +30,9 @@ export class ExamenService {
   public ObtenerExamenReporteResultadosPorId(IdExamen:number):Observable<any>{
     return this.http.get<any>(this.urlBase+'/ObtenerExamenReporteResultadosPorId/'+IdExamen);
   }
+  public ObtenerExamenReporteResultadosPorId2(IdExamen:number):Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ObtenerExamenReporteResultadosPorId2/'+IdExamen);
+  }
   public ObtenerMejorExamenPorUsuario(Json:RegistroTogExamenDTO):Observable<any>{
     return this.http.post<any>(this.urlBase+'/ObtenerMejorExamenPorUsuario',Json);
   }
@@ -63,7 +66,13 @@ export class ExamenService {
   public ObtenerRespuestasCorrectas(idExamen:number):Observable<any>{
     return this.http.get<any>(this.urlBase+'/ObtenerRespuestasCorrectas/'+idExamen);
   }
+  public ObtenerRespuestasCorrectas2(idExamen:number):Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ObtenerRespuestasCorrectas2/'+idExamen);
+  }
   public ObtenerIdExamenNivel2(idExamen:number):Observable<any>{
     return this.http.get<any>(this.urlBase+'/ObtenerIdExamenNivel2/'+idExamen);
+  }
+  public ObtenerPromedioDominioPorModoV2(IdModo:number,take:number):Observable<any>{
+    return this.http.get<any>(this.urlBase+'/ObtenerPromedioDominioPorModoV2?idModo='+IdModo+'&take='+take);
   }
 }

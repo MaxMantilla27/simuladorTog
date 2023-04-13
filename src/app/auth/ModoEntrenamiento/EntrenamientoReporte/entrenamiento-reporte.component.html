@@ -19,7 +19,7 @@
         <div id="datos" style="display: block">
           <div class="row">
             <div class="col-8 col-sm-9 ">
-  
+
                 <div class="card" style="padding: 30px;border-radius: 20px; background: white;">
                   <div class="card-body subtitulo" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px;">
                     <h2><img style="margin-right: 10px;" src="../../../../assets/iconos/data.svg" height="40" /> <span class="titulo">Datos de la simulación</span> </h2>
@@ -56,9 +56,9 @@
                           </div>
                         </div>
                     </div>
-                    <div style="margin-left: 20px; font-size: 13px;color:#706E81; padding-bottom: 20px;">
+                    <!-- <div style="margin-left: 20px; font-size: 13px;color:#706E81; padding-bottom: 20px;">
                       * Nota: Preguntas pertenecientes a una versión anterior, puede que no contengan video de retroalimentación
-                    </div>
+                    </div> -->
                     <div class="container" style="margin-bottom: 20px;">
                       <div *ngIf="Examen.idSimuladorTogNivel==1">
                         <app-dona-puntos [Puntos]="Examen.desempenio"></app-dona-puntos>
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-  
+
         <div class="row">
           <div class="col-12">
               <div class="card" style="padding:30px;border-radius:20px;margin-top: 40px;">
@@ -101,7 +101,7 @@
                           <div class="col-2 numeroReporte">{{Examen.desempenio|number:'1.0-0'}}%</div>
                         </div>
                       </div>
-  
+
                         <div style="padding-bottom:25px;">
                           <div class="col-12 tituloReporte" style="padding-bottom:5px">Promedio global:</div>
                           <div class="row">
@@ -113,7 +113,7 @@
                           <div class="col-2 numeroReporte">{{Examen.promedio|number:'1.0-0'}}%</div>
                         </div>
                       </div>
-  
+
                         <div style="padding-bottom:25px;">
                           <div class="col-12 tituloReporte" style="padding-bottom:5px">Puntaje más alto:</div>
                           <div class="row">
@@ -125,7 +125,7 @@
                           <div class="col-2 numeroReporte">{{Examen.mayor|number:'1.0-0'}}%</div>
                         </div>
                       </div>
-  
+
                         <div style="padding-bottom:25px;">
                           <div class="col-12 tituloReporte" style="padding-bottom:5px">Puntaje más bajo:</div>
                           <div class="row">
@@ -137,7 +137,7 @@
                           <div class="col-2 numeroReporte">{{Examen.menor|number:'1.0-0'}}%</div>
                         </div>
                       </div>
-  
+
                         <div style="padding-bottom:25px;">
                           <div class="col-12 tituloReporte" style="padding-bottom:5px">% de aprobados</div>
                           <div class="row">
@@ -158,7 +158,7 @@
               </div>
           </div>
       </div>
-  
+
         <br />
         <div class="card-deck row" style="color: #fff; justify-content: space-between;">
           <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px;">
@@ -168,14 +168,14 @@
                         <b style="font-size: 20px">Tiempo promedio por pregunta</b></div>
                   </div>
                   <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #0C9AFE">
-  
+
                       <div class="text-center"><b id="PromedioPregunta" style="font-size: 70px;">{{MinutoPromedioMostrar}}:{{SegundoPromedioMostrar}}</b></div>
                       <div class="text-center"><span class="card-text">XX minutos : XX segundos</span></div>
-  
+
                   </div>
               </div>
           </div>
-  
+
           <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px;">
               <div class="card" style="border-radius: 20px; margin: 0px;">
                   <div class="card-header" style="border-radius: 10px 10px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE;padding: 12px 50px;">
@@ -184,16 +184,16 @@
                       </div>
                   </div>
                   <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #0C9AFE">
-  
-  
+
+
                       <div class="text-center"><b id="Percentil" style="font-size: 70px;">{{Percentil}}</b></div>
                       <div class="text-center"><span class="card-text" style="color: #0c9afe ">%</span></div>
-  
-  
+
+
                   </div>
               </div>
           </div>
-  
+
           <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px;">
               <div class="card" style="border-radius: 20px; margin: 0px;">
                   <div class="card-header" style="border-radius: 10px 10px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
@@ -203,11 +203,11 @@
                   </div>
                   <div class="card-body" style="border-radius: 0px 0px 10px 10px; background: #0C9AFE">
                       <div class="text-center"><b id="PreguntasCorrectas" style="font-size: 80px;">{{CantRespuestasCorrectas}}</b></div>
-  
+
                   </div>
               </div>
           </div>
-  
+
           <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px;">
               <div class="card" style="border-radius: 20px; margin: 0px;">
                   <div class="card-header" style="border-radius: 10px 10px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE">
@@ -221,23 +221,23 @@
               </div>
             </div>
           </div>
-  
+
           <br />
           <br />
-  
+
           <div class="card" style="padding:30px;border-radius:20px;">
             <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding: 0px">
                 <h2 class="titulo"> <img src="../../../../assets/iconos/eye.svg" height="40" style="margin-right: 10px;" />Detalles de la simulación</h2>
             </div>
             <div class="card-body" style="padding-bottom: 0px;">
                 <br />
-  
+
                 <div *ngIf="Examen.idSimuladorTogNivel==1">
                   <div class="row">
                     <div class="col-6"><span class="subtitulo float-left" style=" color: #878787; font-weight: 700;">Puntaje General:</span></div>
                     <div class="col-6"  style=" text-align: right;"><span id="PuntajeBarra" class="subtitulo" style="font-weight: 700; font-size: 25px; color: #0a86f2 !important;">{{Desempenio}}%</span></div>
                 </div>
-  
+
                 <mat-progress-bar mode="determinate" style="height: 20px;"
                   [value]="Desempenio">
                 </mat-progress-bar>
@@ -248,12 +248,12 @@
                     <div class="col-6"><span class="subtitulo float-left" style=" color: #878787; font-weight: 700;">Puntaje General:</span></div>
                     <div class="col-6"  style=" text-align: right;"><span id="PuntajeBarra" class="subtitulo" style="font-weight: 700; font-size: 25px; color: #0a86f2 !important;">{{PuntajePorcentaje}}%</span></div>
                 </div>
-  
+
                 <mat-progress-bar mode="determinate" style="height: 20px;"
                   [value]="PuntajePorcentaje">
                 </mat-progress-bar>
                 </div>
-  
+
                 <div *ngIf="Examen.idSimuladorTogNivel==1">
                   <div class="row" *ngIf="Desempenio>=55" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
                     <div class="col-md-4 subtitulo">
@@ -265,7 +265,7 @@
                     <div class="col-md-8">
                       <span class="text-resultado">¡Ánimo! Sigue asi que lo estas haciendo bien</span>
                     </div>
-    
+
                   </div>
                   <div class="row" *ngIf="Desempenio<=54" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
                     <div class="col-md-4 subtitulo">
@@ -274,7 +274,7 @@
                         <img src="../../../../assets/iconos/DesaprobadoMarcado.svg"height="20" > DESAPROBADO
                         </button>
                     </div>
-    
+
                     <div class="col-md-8">
                       <span class="text-resultado">¡Ánimo! La siguiente vez lo harás mucho mejor</span>
                     </div>
@@ -291,7 +291,7 @@
                     <div class="col-md-8">
                       <span class="text-resultado">¡Ánimo! Sigue asi que lo estas haciendo bien</span>
                     </div>
-    
+
                   </div>
                   <div class="row" *ngIf="Puntaje<=23" style="padding-top: 30px;padding-bottom: 20px;border-bottom: 1px solid #E4E4E4;">
                     <div class="col-md-4 subtitulo">
@@ -300,13 +300,13 @@
                         <img src="../../../../assets/iconos/DesaprobadoMarcado.svg"height="20" > DESAPROBADO
                         </button>
                     </div>
-    
+
                     <div class="col-md-8">
                       <span class="text-resultado">¡Ánimo! La siguiente vez lo harás mucho mejor</span>
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="subtitulo" style="margin-top:15px">
                   Puntaje por tema:
                 </div>
@@ -361,7 +361,7 @@
                   </div>
                 </div>
             </div>
-  
+
           </div>
         </div>
       </div>
@@ -383,7 +383,7 @@
         </div>
       </div>
     </div>
-  
+
   </ng-container>
-  
-  
+
+

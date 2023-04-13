@@ -1,16 +1,20 @@
-<div style="display: flex;width: 165px;margin: auto;">
+<div style="display: flex;margin: auto;position: relative;" [ngStyle]="{'width': width}">
     <canvas style="display: block;"baseChart
       [data]="doughnutChartData"
       [options]="doughnutChartOptions"
       [type]="doughnutChartType">
     </canvas>
     <div *ngIf="dosDigitos==true" class="ContenidoDonaPuntos2">
-      <span>{{Puntos}} </span><br>
-      <span style="font-size:15px">Puntos</span>
+      <div style="display: flex;flex-direction: column;margin-top: 10px;">
+        <span>{{Puntos}} </span>
+        <span style="font-size:15px">Puntos</span>
+      </div>
     </div>
     <div *ngIf="unDigito==true" class="ContenidoDonaPuntos1">
-      <span>{{Puntos}} </span><br>
-      <span style="font-size:15px">Puntos</span>
+      <div style="display: flex;flex-direction: column;margin-top: 10px">
+        <span>{{Puntos}} </span>
+        <span style="font-size:15px">Puntos</span>
+      </div>
     </div>
   </div>
-  
+

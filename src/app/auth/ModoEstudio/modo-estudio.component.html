@@ -1,976 +1,895 @@
 <div style="background: white">
-    <div class="container" style="width: 80%;">
-      <div style="padding-top: 12px; padding-bottom: 12px;">
-        <div class="container">
-          <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
-            <app-miga-pan [items]="migaPan"></app-miga-pan>
-          </div>
+  <div class="container" style="width: 80%;">
+    <div style="padding-top: 12px; padding-bottom: 12px;">
+      <div class="container">
+        <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+          <app-miga-pan [items]="migaPan"></app-miga-pan>
         </div>
-        <div style="display:flex">
-          <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 35px; margin-right: 10px;" />
-          <div class="titulo">Modo Estudio</div>
-         </div>
+      </div>
+      <div style="display:flex">
+        <img src="../../../assets/iconos/ModoEstudioSelect.svg" style="height: 35px; margin-right: 10px;" />
+        <div class="titulo">Modo Estudio</div>
       </div>
     </div>
   </div>
-  
-  <div class="container" style="width: 80%; padding-bottom: 40px; padding-top: 40px;">
-    <div style="padding-top: 20px; padding-bottom: 25px;justify-content: center;">
-      <div  class="row" style="color:#fff;justify-content: center;">
-        <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
-          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
-            <div style="text-align:center;">
-                <b class="card-title">Número de simulaciones</b><br><b>totales</b></div>
-          </div>
-          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
-            <div class="text-center"><b style="font-size:60px;">{{SimulacionesTotales}}</b></div>
+</div>
+
+<div class="container" style="width: 80%; padding-bottom: 40px; padding-top: 40px;">
+  <div style="padding-top: 20px; padding-bottom: 25px;justify-content: center;">
+    <div class="row" style="color:#fff;justify-content: center;">
+      <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
+        <div class="card-header"
+          style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
+          <div style="text-align:center;">
+            <b class="card-title">Número de simulaciones</b><br><b>totales</b>
           </div>
         </div>
-      <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
-          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
-              <div style="text-align:center;">
-                  <b class="card-title">Número de simulaciones</b><br><b> inconclusas</b>
-              </div>
-          </div>
-          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
-            <div class="text-center"><b style="font-size:60px;">{{SimulacionesInconclusas}}</b></div>
-  
-          </div>
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{SimulacionesTotales}}</b></div>
+        </div>
       </div>
       <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
-          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
-              <div style="text-align:center; ">
-                  <b class="card-title">Tiempo de estudio</b><br><b> total</b>
-              </div>
+        <div class="card-header"
+          style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
+          <div style="text-align:center;">
+            <b class="card-title">Número de simulaciones</b><br><b> inconclusas</b>
           </div>
-          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
-              <div class="text-center"><b style="font-size:60px;">{{HoraMostrar}}:{{MinutoMostrar}}</b></div>
-              <div class="text-center"><span class="card-text">XX horas / XX minutos</span></div>
+        </div>
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{SimulacionesInconclusas}}</b></div>
+
+        </div>
+      </div>
+      <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
+        <div class="card-header"
+          style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
+          <div style="text-align:center; ">
+            <b class="card-title">Tiempo de estudio</b><br><b> total</b>
           </div>
+        </div>
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{HoraMostrar}}:{{MinutoMostrar}}</b></div>
+          <div class="text-center"><span class="card-text">XX horas / XX minutos</span></div>
         </div>
       </div>
     </div>
-    <br>
-    <div *ngIf="ResultadosPorDominio!=undefined" class="titulo" style="font-weight: 400 !important;margin-top: 15px;margin-bottom: 40px;">
-      <div class="titulo" style="margin-bottom: 15px">
+  </div>
+  <br>
+  <div *ngIf="ResultadosPorDominioV2!=undefined" class="titulo"
+    style="font-weight: 400 !important;margin-top: 15px;margin-bottom: 40px;">
+    <div class="titulo" style="margin-bottom: 15px">
       Top 3 mejores puntajes por categoría (Nivel 1)
-      </div>
-      <div class="row" style="margin-bottom: 15px">
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 1:
-            </div>
-            <div style="font-size: 14px">
-              Conceptos básicos.
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 2:
-            </div>
-            <div style="font-size: 14px">
-              Conceptos de core.
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 3:
-            </div>
-            <div style="font-size: 14px">
-              Introducción al ADM.
-            </div>
-          </div>
-        </div>
-        
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 4:
-            </div>
-            <div style="font-size: 14px">
-              El continuum empresarial y herramientas.
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 5:
-            </div>
-            <div style="font-size: 14px">
-              Fases de ADM.
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 6:
-            </div>
-            <div style="font-size: 14px">
-              Guías y técnicas de ADM.
-            </div>
-          </div>
-        </div>
-              
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 7:
-            </div>
-            <div style="font-size: 14px">
-              Gobernanza de la arquitectura.
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio8"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 8:
-            </div>
-            <div style="font-size: 14px">
-              Vistas de la arquitectura, puntos de vista y partes interesadas.
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio9"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 9:
-            </div>
-            <div style="font-size: 14px">
-              Bloques de construcción.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio10"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 10:
-            </div>
-            <div style="font-size: 14px">
-              Entregables de ADM.
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div style="display: flex;justify-content: center;">
-            <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio11"></app-dona-puntos>
-          </div>
-          <div class="item-leyenda-dona">
-            <div class="subtitulo">
-              Categoría 11:
-            </div>
-            <div style="font-size: 14px">
-              Modelos de referencia TOGAF.
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="titulo" style="margin-bottom: 15px">
-        Top 3 mejores puntajes por categoría (Nivel 2)
-        </div>
-        <div class="row" style="margin-bottom: 15px">
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio12"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 1:
-              </div>
-              <div style="font-size: 14px">
-                Fases ADM: Establecimiento del Proyecto (fases Preliminar, A, Gestión de Requerimientos).
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio13"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 2:
-              </div>
-              <div style="font-size: 14px">
-                Fases ADM: Definición de Arquitectura (fases B, C, D).
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio14"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 3:
-              </div>
-              <div style="font-size: 14px">
-                Fases ADM: Planificación de la transición (fases E y F)
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <div class="row">
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio15"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 4:
-              </div>
-              <div style="font-size: 14px">
-                Fases ADM: Gobernanza (fases G y H)
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio16"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 5:
-              </div>
-              <div style="font-size: 14px">
-                Adaptando el ADM.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio17"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 6:
-              </div>
-              <div style="font-size: 14px">
-                Marco de contenido de la Arquitectura.
-              </div>
-            </div>
-          </div>
-                
-        </div>
-        <div class="row">
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio18"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 7:
-              </div>
-              <div style="font-size: 14px">
-                Modelos de referencia TOGAF.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio19"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 8:
-              </div>
-              <div style="font-size: 14px">
-                Marco de capacidad de la arquitectura.
-              </div>
-            </div>
-          </div>
-        </div>
     </div>
-  
-  
-    <!-- Crear simulación de estudio -->
-    <div class="card" style="padding:30px;border-radius:20px;">
-      <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding-bottom: 10px;">
-        <div class="titulo" style="text-align: left"><img src="../../../assets/iconos/New.svg" style="height: 40px;" />
-          Crear simulación de modo estudio
-        </div>
-      </div>
-      <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
-        <div class="subtitulo" style="padding-bottom: 5px;">
-          Instrucciones:
-        </div>
-        <div>
-          En este modo podrás elegir cuál de las categorías, de los niveles del examen, deseas practicar. Con ello podrás especializarte en las categorías que hayas tenido más dificultad. Una vez elijas la categoría, asignes un nombre a tu simulación y pulses el botón “Crear simulación de estudio”, te aparecerá preguntas relacionadas a esa misma acompañadas de un feedback cada vez que respondas alguna pregunta.
-        </div>
-        <div class="subtitulo" style="margin-top: 20px;margin-bottom: 3px;">          
-          Seleccione el nivel del examen que deseas estudiar:
-        </div>
-        
-        <div class="d-grid gap-2">
-          <!-- Boton Nivel 1 -->
-          <div class="row">
-            <div class="col-12 col-md-2"></div>
-            <div  *ngIf="Nivel1==false" (click)="SeleccionarNivel1()" class="col-12 col-md-3 CardsDominio">
-              <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:100%; justify-content: center;" >
-                <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
-                  Nivel 1
-                </div>
-              </div>
+    <div class="row" style="margin-bottom: 15px">
+      <ng-container *ngIf="ResultadosPorDominioV2N1.length>0">
+        <ng-container *ngFor="let item of ResultadosPorDominioV2N1">
+          <div class="col-12 col-md-4">
+            <div style="display: flex;justify-content: center;">
+              <app-dona-puntos [Puntos]="item.promedio"></app-dona-puntos>
             </div>
-            <div *ngIf="Nivel1==true" class="col-12 col-md-3 CardsDominio">
-              <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:100%; justify-content: center;" >
-
-                <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
-                  Nivel 1
-                </div>
+            <div class="item-leyenda-dona">
+              <div class="subtitulo">
+                Categoría {{item.Categoria}}:
               </div>
-            </div>
-            <!-- Boton Nivel 2 -->
-            <div class="col-12 col-md-2"></div>
-            <div *ngIf="Nivel2==false" (click)="SeleccionarNivel2()" class="col-12 col-md-3 CardsDominio">
-              <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:100%; justify-content: center;" >
-     
-                <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
-                  Nivel 2
-                </div>
-              </div>
-            </div>
-            <div *ngIf="Nivel2==true" class="col-12 col-md-3 CardsDominio">
-              <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:100%; justify-content: center;" >
-
-                <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
-                  Nivel 2
-                </div>
+              <div style="font-size: 14px">
+                {{item.nombre}}
               </div>
             </div>
           </div>
+        </ng-container>
 
-      </div>
-        <form (submit)="RegistrarExamen()" [formGroup]="userForm">
-          <div class="form-horizontal" id="form-crearExamen">
-            <div class="row">
-              <div class="col-md-12" style="padding-bottom: 20px;">           
-                <div class="subtitulo" style="margin-top: 20px;margin-bottom: 3px;">
-                  Selecciona la categoría que deseas estudiar:
-                </div>
-                <div *ngIf="Nivel1==true && Nivel2==false">
-                  <div class="row" >
-                  
-                    <div *ngIf="DominioSeleccionado!=1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=1">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento1.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                          Conceptos básicos
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==1" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento1.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                          Conceptos básicos
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=2">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img  style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento7.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Conceptos fundamentales
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==2" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento7.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Conceptos fundamentales
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-    
-                  <div class="row">
-                    <div *ngIf="DominioSeleccionado!=3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=3">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento2.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Introducción al ADM
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==3" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento2.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Introducción al ADM
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=4">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento8.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Continuidad empresarial y herramientas
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==4" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento8.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Continuidad empresarial y herramientas
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-    
-                  <div class="row">
-                    <div *ngIf="DominioSeleccionado!=5" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=5">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento3.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Fases de ADM
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==5" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento3.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Fases de ADM
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=6" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=6">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento9.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Guías y técnicas de ADM
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==6" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento9.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Guías y técnicas de ADM
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="row">
-                    <div *ngIf="DominioSeleccionado!=7" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=7">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento4.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Gobernanza de la arquitectura
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==7" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento4.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Gobernanza de la arquitectura
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=8" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=8">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento10.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Vista de la arquitectura, puntos de vista y partes interesadas
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==8" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento10.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Vista de la arquitectura, puntos de vista y partes interesadas
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div *ngIf="DominioSeleccionado!=9" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=9">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento5.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Bloques de contrucción
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==9" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento5.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Bloques de contrucción
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=10" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=10">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento11.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Entregables de ADM
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==10" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento11.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Entregables de ADM
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div *ngIf="DominioSeleccionado!=11" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=11">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento6.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Modelos de referencia TOGAF
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==11" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=11">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento6.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Modelos de referencia TOGAF
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Nivel 2 -->
-                <div *ngIf="Nivel2==true && Nivel1==false">
-                  <div class="row" >
-                    <div *ngIf="DominioSeleccionado!=12" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=12">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%" >
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento1.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                          Fases ADM: Establecimiento del Proyecto (fases Preliminar, A, Gestión de Requerimientos
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==12" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%" >
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento1.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;" >
-                          Fases ADM: Establecimiento del Proyecto (fases Preliminar, A, Gestión de Requerimientos
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=16" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=16">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img  style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento5.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Adaptando el ADM
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==16" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento5.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Adaptando el ADM
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-    
-                  <div class="row">
-                    <div *ngIf="DominioSeleccionado!=13" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=13">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento2.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Fases de ADM: Definición de Arquitectura (fases B, C, D)
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==13" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento2.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Fases de ADM: Definición de Arquitectura (fases B, C, D)
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=17" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=17">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento6.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Marco de contenido de la arquitectura
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==17" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento6.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Marco de contenido de la arquitectura
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-    
-                  <div class="row">
-                    <div *ngIf="DominioSeleccionado!=14" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=14">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento3.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Fases de ADM: Planificación de la transición (fases E y F)
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==14" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento3.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Fases de ADM: Planificación de la transición (fases E y F)
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=18" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=18">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento7.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Modelos de referencia TOGAF
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==18" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento7.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Modelos de referencia TOGAF
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="row">
-                    <div *ngIf="DominioSeleccionado!=15" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=15">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento4.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Fases de ADM: Gobernanza (fases G y H)
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==15" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento4.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Fases de ADM: Gobernanza (fases G y H)
-                        </div>
-                      </div>
-                    </div>
-    
-                    <div *ngIf="DominioSeleccionado!=19" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=19">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento8.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Marco de capacidad de la arquitectura
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="DominioSeleccionado==19" class="col-12 col-md-6 CardsDominio" (click)="DominioSeleccionado=0">
-                      <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
-                        <div class="col-md-2" style="display: flex; justify-content: center;">
-                          <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento8.svg">
-                        </div>
-                        <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
-                          Marco de capacidad de la arquitectura
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <mat-error *ngIf="!userForm.invalid && DominioSeleccionado==0">Debe seleccionar un tema para la simulación</mat-error>
-            <div class="row">
-              <div class="col-md-12" style="margin-top: 10px ">
-                <div class="subtitulo">Nombre de la simulación:</div>
-                <mat-form-field appearance="outline" [floatLabel]="'always'" style="width: 100%;">
-                  <input type="text" placeholder="Escriba el nombre de la simulación" formControlName="NombreSimulacion" matInput />
-                  <mat-error *ngIf="userForm.invalid">Debe ingresar un nombre para la simulación</mat-error>
-                </mat-form-field>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3"></div>
-              <div class="col-md-6">
-                <app-default-button  [confs]="{color:'primary',titulo:'Crear una simulación de estudio'}"
-                [style]="'width:100%;margin-top: 20px;background:#FF7424'" [disabled]="BotonResgistrar"></app-default-button>
-              </div>
-              <div class="col-md-3"></div>
-  
-            </div>
-          </form>
-  
-        </div>
-      </div>
-      <br>
-    <!-- Simulaciones completadas -->
-    <div class="card" style="padding:30px;border-radius:20px;">
-      <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
-        <div class="float-left">
-          <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/check2.svg" style="height: 40px;" />
-            Simulaciones completadas
-          </div>
-          <div *ngIf="ContSimulacionesCompletadas!=0">
-            <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px;">
-              <ng-container *ngFor="let item of SimulacionesCompletadas">
-                <div  *ngIf="item.idSimuladorTogModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
-                  <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;">
-                    <div class="col-md-4">
-                      <div style="padding-top: 10px; padding-bottom: 10px;">
-                        <div>
-                          <b>Nombre: </b>  {{item.nombreExamen}}
-                        </div>
-                        <div>
-                          <b>Nivel: </b>  Nivel {{item.idSimuladorTogNivel}}
-                        </div>
-                        <div>
-                          <b>Fecha de conclusión:</b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
-                        </div>
-                      </div>
-                    </div>
-
-
-                      <div class="col-md-3">
-                        <div *ngIf="item.idSimuladorTogNivel==1" >
-                          <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
-                        </div>
-                        <div *ngIf="item.idSimuladorTogNivel==2" >
-                          <app-dona-puntos [Puntos]="(item.puntaje*100)/15"></app-dona-puntos>
-                        </div>
-                      </div>
-                    
-                    <div class="col-md-3">
-                      <div>
-                        <div style="justify-content: center; padding-top: 10px;">
-                          <app-default-button  [confs]="{color:'primary',titulo:'Ver resultados'}"
-                        [style]="'width:100%;background:#FF7424;'" [routerLink]="'/ModoEstudio/EstudioReporte/'+item.id" ></app-default-button>
-                        </div>
-                        <div style="justify-content: center; padding-top: 10px;">
-                          <app-default-button  [confs]="{color:'primary',titulo:'Revisar preguntas'}"
-                        [style]="'width:100%;background:#FF7424;'" [routerLink]="'/ModoEstudio/EstudioRespuestaPregunta/'+item.id +'/'+ item.idSimuladorTogNivel" ></app-default-button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ng-container>
-            </div>
-          </div>
-          <div *ngIf="ContSimulacionesCompletadas==0"style=" font-size: 15px;margin-top: 10px;">
-            No tiene simulaciones completadas.
-          </div>
-        </div>
-        <div class="float-right">
-          <img src="../../../assets/iconos/champions.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
-        </div>
-      </div>
-      <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
-      </div>
+      </ng-container>
     </div>
     <br>
-    <!-- Simulaciones incompletas -->
-    <div class="card" style="padding:30px;border-radius:20px;">
-      <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
-        <div class="float-left">
-          <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/question_2.svg" style="height: 40px;" />
-            Simulaciones incompletas
-          </div>
-          <div *ngIf="ContSimulacionesIncompletas!=0">
-            <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px; ">
-              <ng-container *ngFor="let item of SimulacionesIncompletas">
-                <div  *ngIf="item.idSimuladorTogModo==1" class="container" style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
-                  <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;margin-bottom: 15px;">
-                    <div class="col-md-6">
-                      <div>
-                        <b>Nombre: </b>  {{item.nombreExamen}}
-                      </div>
-                      <div>
-                        <b>Nivel: </b>  Nivel {{item.idSimuladorTogNivel}}
-                      </div>
-                      <div>
-                        <b>Fecha último cambio: </b>  {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
-                      </div>
-                      <div>
-                        <b>Preguntas Respondidas: </b>  {{item.preguntasRespondidas}} de {{item.preguntasRespondidas+item.preguntasPendientes}}
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <mat-progress-bar mode="determinate" style="height: 10px;"
-                    [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
-                  </mat-progress-bar>
-                      <div style="display: flex">
-                        <div style="margin-right: 160px">
-                          <b>Progreso:</b>
-                        </div>
-                        <div style="text-align: left;font-size:19px;color:#0684F2;font-weight: bold;">
-                          {{item.porcentajeAvance}}%
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div>
-                            <app-default-button  [confs]="{color:'primary',titulo:'Continuar'}"
-                          [style]="'width:100%;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoEstudio/EstudioPregunta/'+item.id" ></app-default-button>
-                          </div>
-                        </div>
-                      </div>
-  
-                    </div>
-                  </div>
-                </div>
-              </ng-container>
+    <div class="titulo" style="margin-bottom: 15px">
+      Top 3 mejores puntajes por categoría (Nivel 2)
+    </div>
+    <div class="row" style="margin-bottom: 15px">
+      <ng-container *ngIf="ResultadosPorDominioV2N2.length>0">
+        <ng-container *ngFor="let item of ResultadosPorDominioV2N2">
+          <div class="col-12 col-md-4">
+            <div style="display: flex;justify-content: center;">
+              <app-dona-puntos [Puntos]="item.promedio"></app-dona-puntos>
+            </div>
+            <div class="item-leyenda-dona">
+              <div class="subtitulo">
+                Categoría {{item.Categoria}}:
+              </div>
+              <div style="font-size: 14px">
+                {{item.nombre}}
+              </div>
             </div>
           </div>
-          <div *ngIf="ContSimulacionesIncompletas==0"style=" font-size: 15px;margin-top: 10px;">
-            No tiene simulaciones en curso.
-          </div>
-        </div>
-        <div class="float-right">
-          <img src="../../../assets/iconos/alert.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
-        </div>
-      </div>
-      <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
-      </div>
+        </ng-container>
+
+      </ng-container>
     </div>
-    <br>
   </div>
-  
+
+
+  <!-- Crear simulación de estudio -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body"
+      style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding-bottom: 10px;">
+      <div class="titulo" style="text-align: left"><img src="../../../assets/iconos/New.svg" style="height: 40px;" />
+        Crear simulación de modo estudio
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
+      <div class="subtitulo" style="padding-bottom: 5px;">
+        Instrucciones:
+      </div>
+      <div>
+        En este modo podrás elegir cuál de las categorías, de los niveles del examen, deseas practicar. Con ello
+        podrás especializarte en las categorías que hayas tenido más dificultad. Una vez elijas la categoría, asignes
+        un nombre a tu simulación y pulses el botón “Crear simulación de estudio”, te aparecerá preguntas relacionadas
+        a esa misma acompañadas de un feedback cada vez que respondas alguna pregunta.
+      </div>
+      <div class="subtitulo" style="margin-top: 20px;margin-bottom: 3px;">
+        Seleccione el nivel del examen que deseas estudiar:
+      </div>
+
+      <div class="d-grid gap-2">
+        <!-- Boton Nivel 1 -->
+        <div class="row">
+          <div class="col-12 col-md-2"></div>
+          <div *ngIf="Nivel1==false" (click)="SeleccionarNivel1()" class="col-12 col-md-3 CardsDominio">
+            <div class="card-body row"
+              style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:100%; justify-content: center;">
+              <div class="col-md-10"
+                style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;">
+                Nivel 1
+              </div>
+            </div>
+          </div>
+          <div *ngIf="Nivel1==true" class="col-12 col-md-3 CardsDominio">
+            <div class="card-body row"
+              style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:100%; justify-content: center;">
+
+              <div class="col-md-10"
+                style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;">
+                Nivel 1
+              </div>
+            </div>
+          </div>
+          <!-- Boton Nivel 2 -->
+          <div class="col-12 col-md-2"></div>
+          <div *ngIf="Nivel2==false" (click)="SeleccionarNivel2()" class="col-12 col-md-3 CardsDominio">
+            <div class="card-body row"
+              style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:100%; justify-content: center;">
+
+              <div class="col-md-10"
+                style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;">
+                Nivel 2
+              </div>
+            </div>
+          </div>
+          <div *ngIf="Nivel2==true" class="col-12 col-md-3 CardsDominio">
+            <div class="card-body row"
+              style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:100%; justify-content: center;">
+
+              <div class="col-md-10"
+                style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;">
+                Nivel 2
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <form (submit)="RegistrarExamen()" [formGroup]="userForm">
+        <div class="form-horizontal" id="form-crearExamen">
+          <div class="row">
+            <div class="col-md-12" style="padding-bottom: 20px;">
+              <div class="subtitulo" style="margin-top: 20px;margin-bottom: 3px;">
+                Selecciona la categoría que deseas estudiar:
+              </div>
+              <div *ngIf="Nivel1==true && Nivel2==false">
+                <div class="row">
+
+                  <div *ngIf="DominioSeleccionado!=1" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=1">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento1.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Conceptos básicos
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==1" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento1.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Conceptos básicos
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=2" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=2">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento7.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Conceptos fundamentales
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==2" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento7.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Conceptos fundamentales
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=3" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=3">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento2.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Introducción al ADM
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==3" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento2.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Introducción al ADM
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=4" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=4">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento8.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Continuidad empresarial y herramientas
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==4" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento8.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Continuidad empresarial y herramientas
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=5" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=5">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento3.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases de ADM
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==5" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento3.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases de ADM
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=6" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=6">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento9.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Guías y técnicas de ADM
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==6" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento9.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Guías y técnicas de ADM
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=7" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=7">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento4.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Gobernanza de la arquitectura
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==7" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento4.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Gobernanza de la arquitectura
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=8" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=8">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento10.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Vista de la arquitectura, puntos de vista y partes interesadas
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==8" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento10.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Vista de la arquitectura, puntos de vista y partes interesadas
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=9" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=9">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento5.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Bloques de contrucción
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==9" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento5.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Bloques de contrucción
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=10" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=10">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento11.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Entregables de ADM
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==10" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento11.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Entregables de ADM
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=11" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=11">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento6.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Modelos de referencia TOGAF
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==11" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=11">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF1-Tento6.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Modelos de referencia TOGAF
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Nivel 2 -->
+              <div *ngIf="Nivel2==true && Nivel1==false">
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=12" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=12">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento1.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases ADM: Establecimiento del Proyecto (fases Preliminar, A, Gestión de Requerimientos
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==12" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento1.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases ADM: Establecimiento del Proyecto (fases Preliminar, A, Gestión de Requerimientos
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=16" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=16">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento5.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Adaptando el ADM
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==16" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento5.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Adaptando el ADM
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=13" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=13">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento2.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases de ADM: Definición de Arquitectura (fases B, C, D)
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==13" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento2.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases de ADM: Definición de Arquitectura (fases B, C, D)
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=17" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=17">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento6.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Marco de contenido de la arquitectura
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==17" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento6.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Marco de contenido de la arquitectura
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=14" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=14">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento3.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases de ADM: Planificación de la transición (fases E y F)
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==14" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento3.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases de ADM: Planificación de la transición (fases E y F)
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=18" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=18">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento7.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Modelos de referencia TOGAF
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==18" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento7.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Modelos de referencia TOGAF
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div *ngIf="DominioSeleccionado!=15" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=15">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento4.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases de ADM: Gobernanza (fases G y H)
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==15" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento4.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Fases de ADM: Gobernanza (fases G y H)
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="DominioSeleccionado!=19" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=19">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento8.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Marco de capacidad de la arquitectura
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="DominioSeleccionado==19" class="col-12 col-md-6 CardsDominio"
+                    (click)="DominioSeleccionado=0">
+                    <div class="card-body row"
+                      style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:103%">
+                      <div class="col-md-2" style="display: flex; justify-content: center;">
+                        <img style="height: 50px;" src="../../../assets/iconos/TOGAF2-Tento8.svg">
+                      </div>
+                      <div class="col-md-10"
+                        style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center;">
+                        Marco de capacidad de la arquitectura
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <mat-error *ngIf="!userForm.invalid && DominioSeleccionado==0">Debe seleccionar un tema para la simulación
+          </mat-error>
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 10px ">
+              <div class="subtitulo">Nombre de la simulación:</div>
+              <mat-form-field appearance="outline" [floatLabel]="'always'" style="width: 100%;">
+                <input type="text" placeholder="Escriba el nombre de la simulación" formControlName="NombreSimulacion"
+                  matInput />
+                <mat-error *ngIf="userForm.invalid">Debe ingresar un nombre para la simulación</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <app-default-button [confs]="{color:'primary',titulo:'Crear una simulación de estudio'}"
+              [style]="'width:100%;margin-top: 20px;background:#FF7424'" [disabled]="BotonResgistrar">
+            </app-default-button>
+          </div>
+          <div class="col-md-3"></div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones completadas -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img
+            src="../../../assets/iconos/check2.svg" style="height: 40px;" />
+          Simulaciones completadas
+        </div>
+        <div *ngIf="ContSimulacionesCompletadas!=0">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px;">
+            <ng-container *ngFor="let item of SimulacionesCompletadas">
+              <div *ngIf="item.idSimuladorTogModo==1" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 15px;">
+                <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-md-4">
+                    <div style="padding-top: 10px; padding-bottom: 10px;">
+                      <div>
+                        <b>Nombre: </b> {{item.nombreExamen}}
+                      </div>
+                      <div>
+                        <b>Nivel: </b> Nivel {{item.idSimuladorTogNivel}}
+                      </div>
+                      <div>
+                        <b>Fecha de conclusión:</b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} -
+                        {{item.fechaModificacion| date: 'HH:mm'}}
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-3">
+                    <div *ngIf="item.idSimuladorTogNivel==1">
+                      <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                    </div>
+                    <div *ngIf="item.idSimuladorTogNivel==2">
+                      <app-dona-puntos [Puntos]="(item.puntaje*100)/15"></app-dona-puntos>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div>
+                      <div style="justify-content: center; padding-top: 10px;">
+                        <app-default-button [confs]="{color:'primary',titulo:'Ver resultados'}"
+                          [style]="'width:100%;background:#FF7424;'"
+                          [routerLink]="'/ModoEstudio/EstudioReporte/'+item.id"></app-default-button>
+                      </div>
+                      <div style="justify-content: center; padding-top: 10px;">
+                        <app-default-button [confs]="{color:'primary',titulo:'Revisar preguntas'}"
+                          [style]="'width:100%;background:#FF7424;'"
+                          [routerLink]="'/ModoEstudio/EstudioRespuestaPregunta/'+item.id +'/'+ item.idSimuladorTogNivel">
+                        </app-default-button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="ContSimulacionesCompletadas==0" style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones completadas.
+        </div>
+      </div>
+      <div class="float-right">
+        <img src="../../../assets/iconos/champions.svg" height="35"
+          style="position: absolute; top: -15px; left: 95%;" />
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones incompletas -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img
+            src="../../../assets/iconos/question_2.svg" style="height: 40px;" />
+          Simulaciones incompletas
+        </div>
+        <div *ngIf="ContSimulacionesIncompletas!=0">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding:0px; ">
+            <ng-container *ngFor="let item of SimulacionesIncompletas">
+              <div *ngIf="item.idSimuladorTogModo==1" class="container"
+                style="border-bottom: 1px solid #E4E4E4;padding: 0px;">
+                <div class="row texto-contenido" style="margin-top: 20px;margin-left: 0px;margin-bottom: 15px;">
+                  <div class="col-md-6">
+                    <div>
+                      <b>Nombre: </b> {{item.nombreExamen}}
+                    </div>
+                    <div>
+                      <b>Nivel: </b> Nivel {{item.idSimuladorTogNivel}}
+                    </div>
+                    <div>
+                      <b>Fecha último cambio: </b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} -
+                      {{item.fechaModificacion| date: 'HH:mm'}}
+                    </div>
+                    <div>
+                      <b>Preguntas Respondidas: </b> {{item.preguntasRespondidas}} de
+                      {{item.preguntasRespondidas+item.preguntasPendientes}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-progress-bar mode="determinate" style="height: 10px;"
+                      [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
+                    </mat-progress-bar>
+                    <div style="display: flex">
+                      <div style="margin-right: 160px">
+                        <b>Progreso:</b>
+                      </div>
+                      <div style="text-align: left;font-size:19px;color:#0684F2;font-weight: bold;">
+                        {{item.porcentajeAvance}}%
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div>
+                          <app-default-button [confs]="{color:'primary',titulo:'Continuar'}"
+                            [style]="'width:100%;margin-top: 20px;background:#FF7424'"
+                            [routerLink]="'/ModoEstudio/EstudioPregunta/'+item.id"></app-default-button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="ContSimulacionesIncompletas==0" style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones en curso.
+        </div>
+      </div>
+      <div class="float-right">
+        <img src="../../../assets/iconos/alert.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+    </div>
+  </div>
+  <br>
+</div>

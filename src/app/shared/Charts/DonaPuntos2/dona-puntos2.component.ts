@@ -13,8 +13,10 @@ export class DonaPuntos2Component implements OnInit {
 
   constructor() { }
   @Input() Puntos=0;
+  @Input() width='165px';
+
   //Dona
-  public doughnutChartOptions: ChartConfiguration['options'] = {};
+  public doughnutChartOptions: any = {};
   public doughnutChartData: ChartData<'doughnut',number[]> = {
     labels:["",""],
     datasets: [{
@@ -59,12 +61,13 @@ export class DonaPuntos2Component implements OnInit {
     //Opciones
     this.doughnutChartOptions={
       responsive: true,
+      cutout: '70%',
       plugins: {
       legend: {
         display: false,
         },
       datalabels: {
-        formatter: (value, ctx) => {
+        formatter: (value:any, ctx:any) => {
           if (ctx.chart.data.labels) {
             return ctx.chart.data.labels[ctx.dataIndex];
             }
@@ -97,12 +100,13 @@ export class DonaPuntos2Component implements OnInit {
     //Opciones
     this.doughnutChartOptions={
       responsive: true,
+      cutout: '70%',
       plugins: {
       legend: {
         display: false,
         },
       datalabels: {
-        formatter: (value, ctx) => {
+        formatter: (value:any, ctx:any) => {
           if (ctx.chart.data.labels) {
             return ctx.chart.data.labels[ctx.dataIndex];
             }

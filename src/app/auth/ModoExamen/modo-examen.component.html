@@ -1,557 +1,417 @@
 <div style="background: white">
-    <div class="container" style="width: 80%;">
-      <div style="padding-top: 12px; padding-bottom: 12px;">
-        <div class="container">
-          <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
-            <app-miga-pan [items]="migaPan"></app-miga-pan>
-          </div>
+  <div class="container" style="width: 80%;">
+    <div style="padding-top: 12px; padding-bottom: 12px;">
+      <div class="container">
+        <div class="rowpaddAv breadcrumb" style="padding-top: 0px !important; padding-bottom: 0px !important;">
+          <app-miga-pan [items]="migaPan"></app-miga-pan>
         </div>
-        <div style="display:flex">
-          <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 35px; margin-right: 10px;" />
-          <div class="titulo">Modo Examen</div>
-         </div>
+      </div>
+      <div style="display:flex">
+        <img src="../../../assets/iconos/ModoExamenSelect.svg" style="height: 35px; margin-right: 10px;" />
+        <div class="titulo">Modo Examen</div>
       </div>
     </div>
   </div>
-  <div class="container" style="width: 80%; padding-bottom: 40px; padding-top: 40px;">
-    <div style="justify-content: center; padding-top: 20px; padding-bottom: 25px;">
-      <div  class="row" style="color:#fff;justify-content: center;">
-        <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
-          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
-            <div style="text-align:center;">
-                <b class="card-title">Número de simulaciones</b><br><b>totales</b></div>
+</div>
+<div class="container" style="width: 80%; padding-bottom: 40px; padding-top: 40px;">
+  <div style="justify-content: center; padding-top: 20px; padding-bottom: 25px;">
+    <div class="row" style="color:#fff;justify-content: center;">
+      <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
+        <div class="card-header"
+          style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
+          <div style="text-align:center;">
+            <b class="card-title">Número de simulaciones</b><br><b>totales</b>
           </div>
-          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
-            <div class="text-center"><b style="font-size:60px;">{{SimulacionesTotales}}</b></div>
-          </div>
+        </div>
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{SimulacionesTotales}}</b></div>
+        </div>
       </div>
       <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
-          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
-              <div style="text-align:center;">
-                  <b class="card-title">Número de simulaciones</b><br><b> inconclusas</b>
-              </div>
+        <div class="card-header"
+          style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
+          <div style="text-align:center;">
+            <b class="card-title">Número de simulaciones</b><br><b> inconclusas</b>
           </div>
-          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
-            <div class="text-center"><b style="font-size:60px;">{{SimulacionesInconclusas}}</b></div>
-  
-          </div>
+        </div>
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{SimulacionesInconclusas}}</b></div>
+
+        </div>
       </div>
       <div class="card CardsEstudio col-md-4" style="background: #f2f5fa; border: none;">
-          <div class="card-header" style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
-              <div style="text-align:center; ">
-                  <b class="card-title">Tiempo de estudio</b><br><b> total</b>
-              </div>
+        <div class="card-header"
+          style="border-radius: 20px 20px 0px 0px; border-bottom: 1px solid #fff; background: #0C9AFE; font-size: 20px;">
+          <div style="text-align:center; ">
+            <b class="card-title">Tiempo de estudio</b><br><b> total</b>
           </div>
-          <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
-              <div class="text-center"><b style="font-size:60px;">{{HoraMostrar}}:{{MinutoMostrar}}</b></div>
-              <div class="text-center"><span class="card-text">XX horas / XX minutos</span></div>
+        </div>
+        <div class="card-body" style="border-radius: 0px 0px 20px 20px; background: #0C9AFE">
+          <div class="text-center"><b style="font-size:60px;">{{HoraMostrar}}:{{MinutoMostrar}}</b></div>
+          <div class="text-center"><span class="card-text">XX horas / XX minutos</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="titulo" style="padding-top: 20px; padding-bottom: 15px;">
+    Resultados promedio de las simulaciones de examen (Nivel 1)
+    <div>
+      <div class="container" style="text-align: left;border-bottom: 1px solid #E4E4E4 ; margin-bottom: 5px;    height: 35px;
+        position: relative;">
+        <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 35px;    position: absolute;"
+          [ngStyle]="{'left': (Promedio-2)+'%'}" />
+      </div>
+      <mat-progress-bar mode="determinate" style="height: 10px;" [value]="Promedio">
+      </mat-progress-bar>
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-6" style="text-align: left;font-size: 17px;">
+          {{Promedio}} Puntos
+        </div>
+        <div class="col-6" style="text-align: right;font-size: 17px;font-weight: bold;">
+          Puntaje promedio / 100
+        </div>
+      </div>
+    </div>
+    <div style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #cececf ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card" style="padding:10px;">
+            <div class="row">
+              <span class="subtitulo col-md-7" style="font-size: 16px; padding-top: 10px">Número de intentos:</span>
+              <div class="col-md-5">
+                {{SimulacionesTotales+SimulacionesInconclusas}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card" style="padding:10px;">
+            <div class="row">
+              <span class="subtitulo col-md-7" style="font-size: 16px; padding-top: 10px">Porcentaje de intentos
+                aprobados:</span>
+              <div class="col-md-5">
+                {{PorcentajeIntentosAprobados}} %
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="titulo" style="padding-top: 20px; padding-bottom: 15px;">
-      Resultados promedio de las simulaciones de examen (Nivel 1)
+  </div>
+
+  <div class="titulo" style="padding-top: 20px; padding-bottom: 15px;">
+    Resultados promedio de las simulaciones de examen (Nivel 2)
+    <div>
+      <div class="container" style="text-align: left;border-bottom: 1px solid #E4E4E4 ; margin-bottom: 5px;    height: 35px;
+        position: relative;">
+        <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 35px;    position: absolute;"
+          [ngStyle]="{'left': (Promedio2-2)+'%'}" />
+      </div>
+      <mat-progress-bar mode="determinate" style="height: 10px;" [value]="Promedio2">
+      </mat-progress-bar>
+      <div class="row" style="margin-bottom: 20px;">
+        <div class="col-6" style="text-align: left;font-size: 17px;">
+          {{Promedio2}} Puntos
+        </div>
+        <div class="col-6" style="text-align: right;font-size: 17px;font-weight: bold;">
+          Puntaje promedio / 100
+        </div>
+      </div>
+    </div>
+    <div style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #cececf ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card" style="padding:10px;">
+            <div class="row">
+              <span class="subtitulo col-md-7" style="font-size: 16px; padding-top: 10px">Número de intentos:</span>
+              <div class="col-md-5">
+                {{SimulacionesTotales2+SimulacionesInconclusas2}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card" style="padding:10px;">
+            <div class="row">
+              <span class="subtitulo col-md-7" style="font-size: 16px; padding-top: 10px">Porcentaje de intentos
+                aprobados:</span>
+              <div class="col-md-5">
+                {{PorcentajeIntentosAprobados2}} %
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Crear simulación de examen -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body"
+      style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding-bottom: 10px;">
+      <div class="titulo" style="text-align: left"><img src="../../../assets/iconos/New.svg" style="height: 40px;" />
+        Crear simulación de modo examen
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
+      <div class="subtitulo" style="padding-bottom: 5px;">
+        Instrucciones:
+      </div>
       <div>
-        <div class="container" style="text-align: left;border-bottom: 1px solid #E4E4E4 ; margin-bottom: 5px;">
-          <img src="../../../assets/iconos/ModoEntrenamientoSelect.svg" style="height: 35px;" />
-        </div>
-        <mat-progress-bar mode="determinate" style="height: 10px;"
-              [value]="Promedio">
-        </mat-progress-bar>
-        <div class="row" style="margin-bottom: 20px;">
-          <div class="col-6" style="text-align: left;font-size: 17px;">
-            {{Promedio}} Puntos
-          </div>
-          <div class="col-6" style="text-align: right;font-size: 17px;font-weight: bold;">
-            Puntaje promedio / 100
-          </div>
-        </div>
+        En este modo se simularán todas las condiciones del examen TOGAF 9 (Nivel 1 y Nivel 2), en el que tendrás que
+        aprobar el Nivel 1 (55%) para pasar recién al Nivel 2 (60%). El Nivel 1 cuenta con 40 preguntas y el Nivel 2 con
+        8 preguntas. Para comenzar coloca un nombre con el que identifiques a tu simulación de examen y pulsa el botón
+        “Crear simulación de examen”.
       </div>
-      <div *ngIf="ResultadosPorDominio!=undefined" class="titulo" style="font-weight: 400 !important;margin-top: 15px;margin-bottom: 40px;">
-        <div class="titulo" style="margin-bottom: 15px">
-        Top 3 mejores puntajes por categoría (Nivel 1)
-        </div>
-        <div class="row" style="margin-bottom: 15px">
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio1"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 1:
-              </div>
-              <div style="font-size: 14px">
-                Conceptos básicos.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio2"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 2:
-              </div>
-              <div style="font-size: 14px">
-                Conceptos de core.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio3"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 3:
-              </div>
-              <div style="font-size: 14px">
-                Introducción al ADM.
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <div class="row">
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio4"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 4:
-              </div>
-              <div style="font-size: 14px">
-                El continuum empresarial y herramientas.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio5"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 5:
-              </div>
-              <div style="font-size: 14px">
-                Fases de ADM.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio6"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 6:
-              </div>
-              <div style="font-size: 14px">
-                Guías y técnicas de ADM.
-              </div>
-            </div>
-          </div>
-                
-        </div>
-        <div class="row">
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio7"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 7:
-              </div>
-              <div style="font-size: 14px">
-                Gobernanza de la arquitectura.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio8"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 8:
-              </div>
-              <div style="font-size: 14px">
-                Vistas de la arquitectura, puntos de vista y partes interesadas.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio9"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 9:
-              </div>
-              <div style="font-size: 14px">
-                Bloques de construcción.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio10"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 10:
-              </div>
-              <div style="font-size: 14px">
-                Entregables de ADM.
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div style="display: flex;justify-content: center;">
-              <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio11"></app-dona-puntos>
-            </div>
-            <div class="item-leyenda-dona">
-              <div class="subtitulo">
-                Categoría 11:
-              </div>
-              <div style="font-size: 14px">
-                Modelos de referencia TOGAF.
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <div class="titulo" style="margin-bottom: 15px">
-          Top 3 mejores puntajes por categoría (Nivel 2)
-          </div>
-          <div class="row" style="margin-bottom: 15px">
-            <div class="col-12 col-md-4">
-              <div style="display: flex;justify-content: center;">
-                <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio12"></app-dona-puntos>
-              </div>
-              <div class="item-leyenda-dona">
-                <div class="subtitulo">
-                  Categoría 1:
-                </div>
-                <div style="font-size: 14px">
-                  Fases ADM: Establecimiento del Proyecto (fases Preliminar, A, Gestión de Requerimientos).
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div style="display: flex;justify-content: center;">
-                <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio13"></app-dona-puntos>
-              </div>
-              <div class="item-leyenda-dona">
-                <div class="subtitulo">
-                  Categoría 2:
-                </div>
-                <div style="font-size: 14px">
-                  Fases ADM: Definición de Arquitectura (fases B, C, D).
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div style="display: flex;justify-content: center;">
-                <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio14"></app-dona-puntos>
-              </div>
-              <div class="item-leyenda-dona">
-                <div class="subtitulo">
-                  Categoría 3:
-                </div>
-                <div style="font-size: 14px">
-                  Fases ADM: Planificación de la transición (fases E y F)
-                </div>
-              </div>
-            </div>
-            
-          </div>
+      <form (submit)="RegistrarExamen()" [formGroup]="userForm">
+        <div class="form-horizontal" id="form-crearExamen">
           <div class="row">
-            <div class="col-12 col-md-4">
-              <div style="display: flex;justify-content: center;">
-                <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio15"></app-dona-puntos>
-              </div>
-              <div class="item-leyenda-dona">
-                <div class="subtitulo">
-                  Categoría 4:
-                </div>
-                <div style="font-size: 14px">
-                  Fases ADM: Gobernanza (fases G y H)
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div style="display: flex;justify-content: center;">
-                <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio16"></app-dona-puntos>
-              </div>
-              <div class="item-leyenda-dona">
-                <div class="subtitulo">
-                  Categoría 5:
-                </div>
-                <div style="font-size: 14px">
-                  Adaptando el ADM.
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div style="display: flex;justify-content: center;">
-                <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio17"></app-dona-puntos>
-              </div>
-              <div class="item-leyenda-dona">
-                <div class="subtitulo">
-                  Categoría 6:
-                </div>
-                <div style="font-size: 14px">
-                  Marco de contenido de la Arquitectura.
-                </div>
-              </div>
-            </div>
-                  
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-4">
-              <div style="display: flex;justify-content: center;">
-                <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio18"></app-dona-puntos>
-              </div>
-              <div class="item-leyenda-dona">
-                <div class="subtitulo">
-                  Categoría 7:
-                </div>
-                <div style="font-size: 14px">
-                  Modelos de referencia TOGAF.
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div style="display: flex;justify-content: center;">
-                <app-dona-puntos [Puntos]="ResultadosPorDominio.dominio19"></app-dona-puntos>
-              </div>
-              <div class="item-leyenda-dona">
-                <div class="subtitulo">
-                  Categoría 8:
-                </div>
-                <div style="font-size: 14px">
-                  Marco de capacidad de la arquitectura.
-                </div>
-              </div>
+            <div class="col-md-12" style="margin-top: 10px ">
+              <div class="subtitulo">Nombre de la simulación:</div>
+              <mat-form-field appearance="outline" [floatLabel]="'always'" style="width: 100%;">
+                <input type="text" placeholder="Escriba el nombre de la simulación" formControlName="NombreSimulacion"
+                  matInput />
+                <mat-error *ngIf="userForm.invalid">Debe ingresar un nombre para la simulación</mat-error>
+              </mat-form-field>
             </div>
           </div>
-      </div>
-      <div style="padding-top: 20px; padding-bottom: 20px; border-top: 1px solid #cececf ">
+        </div>
         <div class="row">
+          <div class="col-md-3"></div>
           <div class="col-md-6">
-            <div class="card" style="padding:10px;">
-              <div class="row">
-                  <span class="subtitulo col-md-7" style="font-size: 16px; padding-top: 10px">Número de intentos:</span>
-                  <div class="col-md-5">
-                    {{SimulacionesTotales+SimulacionesInconclusas}}
-                  </div>
-              </div>
+            <app-default-button [confs]="{color:'primary',titulo:'Crear una simulación de examen'}"
+              [style]="'width:100%;margin-top: 20px;background:#FF7424'" [disabled]="BotonResgistrar">
+            </app-default-button>
           </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card" style="padding:10px;">
-              <div class="row">
-                  <span class="subtitulo col-md-7" style="font-size: 16px; padding-top: 10px">Porcentaje de intentos aprobados:</span>
-                  <div class="col-md-5">
-                    {{PorcentajeIntentosAprobados}} %
-                  </div>
-              </div>
-          </div>
-          </div>
+          <div class="col-md-3"></div>
+
         </div>
-      </div>
+      </form>
     </div>
-  
-  
-    <!-- Crear simulación de examen -->
-    <div class="card" style="padding:30px;border-radius:20px;">
-      <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; padding-bottom: 10px;">
-        <div class="titulo" style="text-align: left"><img src="../../../assets/iconos/New.svg" style="height: 40px;" />
-          Crear simulación de modo examen
-        </div>
-      </div>
-      <div class="card-body" style="border-radius: 0px 0px 20px 20px; padding-top: 20px; padding-bottom:0px; ">
-        <div class="subtitulo" style="padding-bottom: 5px;">
-          Instrucciones:
-        </div>
-        <div>
-            En este modo se simularán todas las condiciones del examen TOGAF 9 (Nivel 1 y Nivel 2), en el que tendrás que aprobar el Nivel 1 (55%) para pasar recién al Nivel 2 (60%). El Nivel 1 cuenta con 40 preguntas y el Nivel 2 con 8 preguntas. Para comenzar coloca un nombre con el que identifiques a tu simulación de examen y pulsa el botón “Crear simulación de examen”.
-        </div>
-        <form (submit)="RegistrarExamen()" [formGroup]="userForm">
-          <div class="form-horizontal" id="form-crearExamen">
-            <div class="row">
-              <div class="col-md-12" style="margin-top: 10px ">
-                <div class="subtitulo">Nombre de la simulación:</div>
-                <mat-form-field appearance="outline" [floatLabel]="'always'" style="width: 100%;">
-                  <input type="text" placeholder="Escriba el nombre de la simulación" formControlName="NombreSimulacion" matInput />
-                  <mat-error *ngIf="userForm.invalid">Debe ingresar un nombre para la simulación</mat-error>
-                </mat-form-field>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                  <app-default-button  [confs]="{color:'primary',titulo:'Crear una simulación de examen'}"
-                  [style]="'width:100%;margin-top: 20px;background:#FF7424'" [disabled]="BotonResgistrar"></app-default-button>
-                </div>
-                <div class="col-md-3"></div>
-    
-              </div>
-        </form>
-      </div>
-    </div>
-    <br>
-    <div class="card" style="padding:30px;border-radius:20px;">
-      <div class="card-body" style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; margin-bottom: 25px">
-          <h2 class="titulo" style=" display: inline-flex;">
-              <img src="../../../assets/iconos/graphic.svg" style="height: 40px; margin-right: 10px;" />
-              <div style="overflow-wrap: anywhere;text-align: left;">
-                  Gráfica de comparación entre tus puntajes por intento y el puntaje promedio global por intento.
-              </div>
-          </h2>
-      </div>
-      <div class="container" *ngIf="DatosIntento==true && DatosIntentoUsuario==true" style="height: auto;">
-        <app-line [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
-      </div>
-      <div class="container"  *ngIf="DatosIntento==true && DatosIntentoUsuario==false" style="height: auto;">
-        <app-line  [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
-      </div>
-      <div class="container"  *ngIf="DatosIntento==false && DatosIntentoUsuario==true" style="height: auto;">
-        <app-line  [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
-      </div>
-      <div class="container"  *ngIf="DatosIntento==false && DatosIntentoUsuario==false" style=" font-size: 15px;margin-top: 10px;margin-left: 15px;">
-        Realice simulaciones para obtener sus resultados.
-      </div>
   </div>
-    <br>
-    <!-- Simulaciones completadas -->
-    <div class="card" style="padding:30px;border-radius:20px;">
-      <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
-        <div class="float-left">
-          <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/check2.svg" style="height: 40px;" />
-            Simulaciones completadas
-          </div>
-          <div *ngIf="ContSimulacionesCompletadas!=0">
-            <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
-              <ng-container *ngFor="let item of SimulacionesCompletadas">
-                <div  *ngIf="item.idSimuladorTogModo==3" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 20px;">
-                  <div class="row texto-contenido " style="margin-top: 20px;margin-left: 0px;">
-                    <div class="col-md-4">
-                      <div style="padding-top: 10px; padding-bottom: 10px;">
-                        <div>
-                          <b>Nombre: </b>  {{item.nombreExamen}}
-                        </div>
-                        <div>
-                            <b>Nivel: </b>  {{item.idSimuladorTogNivel}}
-                          </div>
-                        <div>
-                          <b>Fecha de conclusión:</b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
-                        </div>
+  <br>
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body"
+      style="border-bottom: 1px solid #E4E4E4; border-radius: 20px 20px 0px 0px; margin-bottom: 25px">
+      <h2 class="titulo" style=" display: inline-flex;">
+        <img src="../../../assets/iconos/graphic.svg" style="height: 40px; margin-right: 10px;" />
+        <div style="overflow-wrap: anywhere;text-align: left;">
+          Gráfica de comparación entre tus puntajes por intento y el puntaje promedio global por intento.
+        </div>
+      </h2>
+    </div>
+    <div class="container" *ngIf="DatosIntento==true && DatosIntentoUsuario==true" style="height: auto;">
+      <app-line [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
+    </div>
+    <div class="container" *ngIf="DatosIntento==true && DatosIntentoUsuario==false" style="height: auto;">
+      <app-line [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
+    </div>
+    <div class="container" *ngIf="DatosIntento==false && DatosIntentoUsuario==true" style="height: auto;">
+      <app-line [ExamenPorIntento]="ExamenPorIntento" [ExamenPorIntentoUsuario]="ExamenPorIntentoUsuario"></app-line>
+    </div>
+    <div class="container" *ngIf="DatosIntento==false && DatosIntentoUsuario==false"
+      style=" font-size: 15px;margin-top: 10px;margin-left: 15px;">
+      Realice simulaciones para obtener sus resultados.
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones completadas -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img
+            src="../../../assets/iconos/check2.svg" style="height: 40px;" />
+          Simulaciones completadas
+        </div>
+        <div *ngIf="ContSimulacionesCompletadas!=0">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+            <ng-container *ngFor="let item of GroupSimulacionesCompletadas">
+              <div *ngIf="item.idSimuladorTogModo==3" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 20px;">
+                <div class="row texto-contenido " style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-12 col-md-5 col-lg-6">
+                    <div style="padding-top: 10px; padding-bottom: 10px;">
+                      <div>
+                        <b>Nombre: </b> {{item.nombreExamen}}
+                      </div>
+                      <div *ngIf="item.Hijo==null">
+                        <b>Nivel: </b> {{item.idSimuladorTogNivel}}
+                      </div>
+                      <div>
+                        <b>Fecha de conclusión:</b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} -
+                        {{item.fechaModificacion| date: 'HH:mm'}}
                       </div>
                     </div>
-                    <div class="col-md-3">
-                      <app-dona-puntos [Puntos]="item.desempenio"></app-dona-puntos>
+                  </div>
+
+                  <div class="col-12 col-md-7 col-lg-5 row"  *ngIf="item.Hijo!=null">
+                    <div class="col-6 col-md-6 col-lg-6">
+                      <div style="text-align: center;width: 100%;"><b>Nivel: </b> {{item.idSimuladorTogNivel}}</div>
+                      <app-dona-puntos2 [Puntos]="item.desempenio" [width]="'100%'"></app-dona-puntos2>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-6 col-lg-6">
+                      <div style="text-align: center;width: 100%;"><b>Nivel: </b> {{item.Hijo.idSimuladorTogNivel}}</div>
+                      <app-dona-puntos2  [Puntos]="item.Hijo.desempenio" [width]="'100%'"></app-dona-puntos2>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-12">
                       <div>
                         <div style="padding-top: 10px;">
-                          <app-default-button  [confs]="{color:'primary',titulo:'Ver resultados'}"
-                        [style]="'width:100%;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenReporte/'+item.id" ></app-default-button>
+                          <app-default-button [confs]="{color:'primary',titulo:'Ver resultados'}"
+                            [style]="'width:100%;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenReporte/'+item.id">
+                          </app-default-button>
                         </div>
                         <div>
-                          <app-default-button  [confs]="{color:'primary',titulo:'Revisar preguntas'}"
-                        [style]="'width:100%;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id +'/'+ item.idSimuladorTogNivel" ></app-default-button>
+                          <app-default-button [confs]="{color:'primary',titulo:'Revisar preguntas'}"
+                            [style]="'width:100%;background:#FF7424'"
+                            [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id +'/'+ item.idSimuladorTogNivel">
+                          </app-default-button>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </ng-container>
-            </div>
-          </div>
-          <div *ngIf="ContSimulacionesCompletadas==0"style=" font-size: 15px;margin-top: 10px;">
-            No tiene simulaciones completadas.
-          </div>
-        </div>
-        <div class="float-right">
-          <img src="../../../assets/iconos/champions.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
-        </div>
-      </div>
-      <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
-      </div>
-    </div>
-    <br>
-    <!-- Simulaciones incompletas -->
-    <div class="card" style="padding:30px;border-radius:20px;">
-      <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
-        <div class="float-left">
-          <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img src="../../../assets/iconos/question_2.svg" style="height: 40px;" />
-            Simulaciones incompletas
-          </div>
-          <div *ngIf="ContSimulacionesIncompletas!=0">
-            <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
-              <ng-container *ngFor="let item of SimulacionesIncompletas">
-                <div  *ngIf="item.idSimuladorTogModo==3" class="container" style="border-bottom: 1px solid #E4E4E4;padding-bottom: 20px;">
-                  <div class="row texto-contenido " style="margin-top: 20px;margin-left: 0px;">
-                    <div class="col-md-6">
+                  <ng-container  *ngIf="item.Hijo==null">
+
+                    <div class="col-6 col-md-6 col-lg-3">
+                      <app-dona-puntos2 [Puntos]="item.desempenio" [width]="'100%'"></app-dona-puntos2>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
                       <div>
-                        <b>Nombre: </b>  {{item.nombreExamen}}
-                      </div>
-                      <div>
-                        <b>Nivel actual: </b>  Nivel {{item.idSimuladorTogNivel}}
-                      </div>
-                      <div>
-                        <b>Fecha de último cambio: </b>  {{item.fechaModificacion|date: 'dd/MM/yyyy'}} - {{item.fechaModificacion| date: 'HH:mm'}}
-                      </div>
-                      <div>
-                        <b>Preguntas Respondidas: </b>  {{item.preguntasRespondidas}} de {{item.preguntasRespondidas+item.preguntasPendientes}}
+                        <div style="padding-top: 10px;">
+                          <app-default-button [confs]="{color:'primary',titulo:'Ver resultados'}"
+                            [style]="'width:100%;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenReporte/'+item.id">
+                          </app-default-button>
+                        </div>
+                        <div>
+                          <app-default-button [confs]="{color:'primary',titulo:'Revisar preguntas'}"
+                            [style]="'width:100%;background:#FF7424'"
+                            [routerLink]="'/ModoExamen/ExamenRespuestaPregunta/'+item.id +'/'+ item.idSimuladorTogNivel">
+                          </app-default-button>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-md-6">
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div *ngIf="ContSimulacionesCompletadas==0" style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones completadas.
+        </div>
+      </div>
+      <div class="float-right">
+        <img src="../../../assets/iconos/champions.svg" height="35"
+          style="position: absolute; top: -15px; left: 95%;" />
+      </div>
+    </div>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+    </div>
+  </div>
+  <br>
+  <!-- Simulaciones incompletas -->
+  <div class="card" style="padding:30px;border-radius:20px;">
+    <div class="card-body" style="border-radius: 20px 20px 0px 0px; padding-left: 15px;">
+      <div class="float-left">
+        <div class="titulo" style="text-align: left;border-bottom: 1px solid #E4E4E4; padding-bottom: 10px;"><img
+            src="../../../assets/iconos/question_2.svg" style="height: 40px;" />
+          Simulaciones incompletas
+        </div>
+        <div *ngIf="ContSimulacionesIncompletas!=0">
+          <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+            <ng-container *ngFor="let item of GroupSimulacionesIncompletas">
+              <div *ngIf="item.idSimuladorTogModo==3" class="container"
+                style="border-bottom: 1px solid #E4E4E4;padding-bottom: 20px;">
+                <div class="row texto-contenido " style="margin-top: 20px;margin-left: 0px;">
+                  <div class="col-12 col-md-5 col-lg-5">
+                    <div>
+                      <b>Nombre: </b> {{item.nombreExamen}}
+                    </div>
+                    <div *ngIf="item.Hijo==null">
+                      <b>Nivel actual: </b> Nivel {{item.idSimuladorTogNivel}}
+                    </div>
+                    <div>
+                      <b>Fecha de último cambio: </b> {{item.fechaModificacion|date: 'dd/MM/yyyy'}} -
+                      {{item.fechaModificacion| date: 'HH:mm'}}
+                    </div>
+                    <div>
+                      <b>Preguntas Respondidas: </b> {{item.preguntasRespondidas}} de
+                      {{item.preguntasRespondidas+item.preguntasPendientes}}
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-7 col-lg-7 row" *ngIf="item.Hijo!=null">
+                    <div class="col-4">
+                      <div style="text-align: center;width: 100%;"><b>Nivel: </b> {{item.idSimuladorTogNivel}}</div>
+                      <ng-container *ngIf="item.idEstadoExamen==3">
+                        <app-dona-puntos2 [Puntos]="item.desempenio" [width]="'100%'"></app-dona-puntos2>
+                      </ng-container>
+                      <ng-container *ngIf="item.idEstadoExamen!=3">
+                        <mat-progress-bar mode="determinate" style="height: 20px;"
+                          [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
+                        </mat-progress-bar>
+                        <div style="display: flex;    justify-content: space-between;">
+                          <div>
+                            <b>Progreso:</b>
+                          </div>
+                          <div style="text-align: left;font-size:19px;color:#0684F2;font-weight: bold;">
+                            {{item.porcentajeAvance}}%
+                          </div>
+                        </div>
+                      </ng-container>
+
+                    </div>
+                    <div class="col-8">
+                      <div style="text-align: center;width: 100%;"><b>Nivel: </b> {{item.Hijo.idSimuladorTogNivel}}</div>
                       <mat-progress-bar mode="determinate" style="height: 20px;"
-                    [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
-                  </mat-progress-bar>
-                      <div style="display: flex">
-                        <div style="margin-right: 160px">
+                        [value]="(item.Hijo.preguntasRespondidas/(item.Hijo.preguntasRespondidas+item.Hijo.preguntasPendientes))*100">
+                      </mat-progress-bar>
+                      <div style="display: flex;    justify-content: space-between;">
+                        <div>
                           <b>Progreso:</b>
                         </div>
                         <div style="text-align: left;font-size:19px;color:#0684F2;font-weight: bold;">
-                          {{item.porcentajeAvance}}%
+                          {{item.Hijo.porcentajeAvance}}%
                         </div>
                       </div>
-                      <div style="justify-content: left;display:flex">
-                        <app-default-button  [confs]="{color:'primary',titulo:'Continuar'}"
-                      [style]="'width:170px;margin-top: 20px;background:#FF7424'" [routerLink]="'/ModoExamen/ExamenPregunta/'+item.id" ></app-default-button>
-                      </div>
+                    </div>
+                    <div style="justify-content: left;display:flex">
+                      <app-default-button [confs]="{color:'primary',titulo:'Continuar'}"
+                        [style]="'width:170px;margin-top: 20px;background:#FF7424'"
+                        [routerLink]="'/ModoExamen/ExamenPregunta/'+(item.idEstadoExamen==3?item.Hijo.id:item.id)"></app-default-button>
                     </div>
                   </div>
-  
+                  <div class="col-12 col-md-7 col-lg-7" *ngIf="item.Hijo==null">
+                    <mat-progress-bar mode="determinate" style="height: 20px;"
+                      [value]="(item.preguntasRespondidas/(item.preguntasRespondidas+item.preguntasPendientes))*100">
+                    </mat-progress-bar>
+                    <div style="display: flex;    justify-content: space-between;">
+                      <div>
+                        <b>Progreso:</b>
+                      </div>
+                      <div style="text-align: left;font-size:19px;color:#0684F2;font-weight: bold;">
+                        {{item.porcentajeAvance}}%
+                      </div>
+                    </div>
+                    <div style="justify-content: left;display:flex">
+                      <app-default-button [confs]="{color:'primary',titulo:'Continuar'}"
+                        [style]="'width:170px;margin-top: 20px;background:#FF7424'"
+                        [routerLink]="'/ModoExamen/ExamenPregunta/'+item.id"></app-default-button>
+                    </div>
+                  </div>
                 </div>
-              </ng-container>
-            </div>
-          </div>
-          <div *ngIf="ContSimulacionesIncompletas==0"style=" font-size: 15px;margin-top: 10px;">
-            No tiene simulaciones en curso.
+
+              </div>
+            </ng-container>
           </div>
         </div>
-        <div class="float-right">
-          <img src="../../../assets/iconos/alert.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
+        <div *ngIf="ContSimulacionesIncompletas==0" style=" font-size: 15px;margin-top: 10px;">
+          No tiene simulaciones en curso.
         </div>
       </div>
-      <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+      <div class="float-right">
+        <img src="../../../assets/iconos/alert.svg" height="35" style="position: absolute; top: -15px; left: 95%;" />
       </div>
     </div>
-  <br>
+    <div class="card-body" style="border-radius: 0px 0px 20px 20px;padding-top:0px;padding-bottom:0px; ">
+    </div>
   </div>
-  
-  
-  
-  
-  
-  
+  <br>
+</div>

@@ -94,22 +94,22 @@
                     style="color: #4a4a4a; font-weight: 400; margin-left: 10px"
                   >
                     Nivel {{ Examen.idSimuladorTogNivel }}:
-                    {{ Examen.preguntasRespondidas }}
+                    {{ Examen.preguntasRespondidas }} ,
+                    <ng-container *ngIf="Examen2!=null">
+                      Nivel {{ Examen2.idSimuladorTogNivel }}:
+                      {{ Examen2.preguntasRespondidas }} ,
+                    </ng-container>
+
                   </div>
                 </div>
                 <div
                   class="card-text btn-block Seleccion"
                   style="display: flex"
                 >
-                  <b>Nivel: </b>
-                  <div
-                    style="color: #4a4a4a; font-weight: 400; margin-left: 10px"
-                  >
-                    {{ Examen.idSimuladorTogNivel }}
-                  </div>
+                  <b>Nivel: {{ Examen.idSimuladorTogNivel }}</b>
                 </div>
               </div>
-              <div
+              <!-- <div
                 style="
                   margin-left: 20px;
                   font-size: 13px;
@@ -119,9 +119,21 @@
               >
                 * Nota: Preguntas pertenecientes a una versión anterior, puede
                 que no contengan video de retroalimentación
-              </div>
+              </div> -->
               <div style="margin-bottom: 20px">
                 <app-dona-puntos [Puntos]="Examen.desempenio"></app-dona-puntos>
+              </div>
+
+              <div class="card-body" *ngIf="Examen2!=null">
+                <div
+                  class="card-text btn-block Seleccion"
+                  style="display: flex"
+                >
+                  <b>Nivel: {{ Examen2.idSimuladorTogNivel }}</b>
+                </div>
+              </div>
+              <div style="margin-bottom: 20px" *ngIf="Examen2!=null">
+                <app-dona-puntos [Puntos]="Examen2.desempenio"></app-dona-puntos>
               </div>
             </div>
           </div>
@@ -321,7 +333,7 @@
                   padding: 0px;
                 ">
                 Nivel 2</div>
-              <div class="card-body">
+              <div class="card-body" *ngIf="Examen2!=null">
                 <div class="row" style="align-items: center">
                   <div style="padding-bottom: 25px">
                     <div
@@ -335,12 +347,12 @@
                         <mat-progress-bar
                           mode="determinate"
                           style="height: 10px"
-                          [value]="Examen.desempenio"
+                          [value]="Examen2.desempenio"
                         >
                         </mat-progress-bar>
                       </div>
                       <div class="col-2 numeroReporte">
-                        {{ Examen.desempenio | number: "1.0-0" }}%
+                        {{ Examen2.desempenio | number: "1.0-0" }}%
                       </div>
                     </div>
                   </div>
@@ -357,12 +369,12 @@
                         <mat-progress-bar
                           mode="determinate"
                           style="height: 10px"
-                          [value]="Examen.promedio"
+                          [value]="Examen2.promedio"
                         >
                         </mat-progress-bar>
                       </div>
                       <div class="col-2 numeroReporte">
-                        {{ Examen.promedio | number: "1.0-0" }}%
+                        {{ Examen2.promedio | number: "1.0-0" }}%
                       </div>
                     </div>
                   </div>
@@ -379,12 +391,12 @@
                         <mat-progress-bar
                           mode="determinate"
                           style="height: 10px"
-                          [value]="Examen.mayor"
+                          [value]="Examen2.mayor"
                         >
                         </mat-progress-bar>
                       </div>
                       <div class="col-2 numeroReporte">
-                        {{ Examen.mayor | number: "1.0-0" }}%
+                        {{ Examen2.mayor | number: "1.0-0" }}%
                       </div>
                     </div>
                   </div>
@@ -401,12 +413,12 @@
                         <mat-progress-bar
                           mode="determinate"
                           style="height: 10px"
-                          [value]="Examen.menor"
+                          [value]="Examen2.menor"
                         >
                         </mat-progress-bar>
                       </div>
                       <div class="col-2 numeroReporte">
-                        {{ Examen.menor | number: "1.0-0" }}%
+                        {{ Examen2.menor | number: "1.0-0" }}%
                       </div>
                     </div>
                   </div>
@@ -423,12 +435,12 @@
                         <mat-progress-bar
                           mode="determinate"
                           style="height: 10px"
-                          [value]="Examen.percentil"
+                          [value]="Examen2.percentil"
                         >
                         </mat-progress-bar>
                       </div>
                       <div class="col-2 numeroReporte">
-                        {{ Examen.percentil | number: "1.0-0" }}%
+                        {{ Examen2.percentil | number: "1.0-0" }}%
                       </div>
                     </div>
                   </div>
@@ -438,7 +450,7 @@
                       style="height: 30px; margin-right: 20px"
                     />
                     <div>
-                      ¡Felicidades! Estás sobre el {{ Percentil }} % de los
+                      ¡Felicidades! Estás sobre el {{ Percentil2 }} % de los
                       participantes!
                     </div>
                   </div>
@@ -450,8 +462,7 @@
         <br />
         <div class="d-grid gap-2">
           <!-- Boton Nivel 1 -->
-          <div class="row">
-            <div class="col-12 col-md-2"></div>
+          <div class="row" style="justify-content: space-evenly;">
             <div  *ngIf="Nivel1==false" (click)="SeleccionarNivel1()" class="col-12 col-md-3 CardsDominio">
               <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:100%; justify-content: center;" >
                 <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
@@ -468,23 +479,25 @@
               </div>
             </div>
             <!-- Boton Nivel 2 -->
-            <div class="col-12 col-md-2"></div>
-            <div *ngIf="Nivel2==false" (click)="SeleccionarNivel2()" class="col-12 col-md-3 CardsDominio">
-              <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:100%; justify-content: center;" >
-     
-                <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
-                  Reporte del Nivel 2
-                </div>
-              </div>
-            </div>
-            <div *ngIf="Nivel2==true" class="col-12 col-md-3 CardsDominio">
-              <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:100%; justify-content: center;" >
+            <ng-container *ngIf="Examen2!=null">
+              <div *ngIf="Nivel2==false" (click)="SeleccionarNivel2()" class="col-12 col-md-3 CardsDominio">
+                <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: #0C9AFE ;width:100%; justify-content: center;" >
 
-                <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
-                  Reporte del Nivel 2
+                  <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
+                    Reporte del Nivel 2
+                  </div>
                 </div>
               </div>
-            </div>
+              <div *ngIf="Nivel2==true" class="col-12 col-md-3 CardsDominio">
+                <div class="card-body row" style="border-radius: 20px 20px 20px 20px; background: rgb(255, 138, 92) ;width:100%; justify-content: center;" >
+
+                  <div class="col-md-10" style="font-size:12px;color: white;cursor: pointer;display: flex;align-items: center; justify-content: center;" >
+                    Reporte del Nivel 2
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
           </div>
       </div>
       <br/>
@@ -494,8 +507,8 @@
           style="color: #fff; justify-content: space-between"
         >
         <div class="subtitulo ; text-center" style="font-size: 20px; margin-top: 40px">
-          Resultados del examen (Nivel1)
-        </div>       
+          Resultados del examen (Nivel 1)
+        </div>
           <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px">
             <div class="card" style="border-radius: 20px; margin: 0px">
               <div
@@ -622,10 +635,10 @@
         <div *ngIf="Nivel2==true && Nivel1==false" >
           <div
           class="card-deck row"
-          style="color: #fff; justify-content: space-between" 
+          style="color: #fff; justify-content: space-between"
         >
         <div class="subtitulo ; text-center" style="font-size: 20px; margin-top: 40px">
-          Resultados del examen (Nivel2)
+          Resultados del examen (Nivel 2)
         </div>
           <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 30px">
             <div class="card" style="border-radius: 20px; margin: 0px">
@@ -648,7 +661,7 @@
               >
                 <div class="text-center">
                   <b id="PromedioPregunta" style="font-size: 70px"
-                    >{{ MinutoPromedioMostrar }}:{{ SegundoPromedioMostrar }}</b
+                    >{{ MinutoPromedioMostrar2 }}:{{ SegundoPromedioMostrar2 }}</b
                   >
                 </div>
                 <div class="text-center">
@@ -680,7 +693,7 @@
                 style="border-radius: 0px 0px 10px 10px; background: #0c9afe"
               >
                 <div class="text-center">
-                  <b id="Percentil" style="font-size: 70px">{{ Percentil }}</b>
+                  <b id="Percentil" style="font-size: 70px">{{ Percentil2 }}</b>
                 </div>
                 <div class="text-center">
                   <span class="card-text" style="color: #0c9afe">%</span>
@@ -712,7 +725,7 @@
               >
                 <div class="text-center">
                   <b id="PreguntasCorrectas" style="font-size: 80px">{{
-                    CantRespuestasCorrectas
+                    CantRespuestasCorrectas2
                   }}</b>
                 </div>
               </div>
@@ -742,7 +755,7 @@
               >
                 <div class="text-center">
                   <b id="PreguntasIncorrectas" style="font-size: 80px">{{
-                    CantRespuestasIncorrectas
+                    CantRespuestasIncorrectas2
                   }}</b>
                 </div>
               </div>
@@ -751,7 +764,7 @@
         </div>
         </div>
         <br />
-        <div *ngIf="Nivel1==true && Nivel2==false && Examen.idSimuladorTogNivel==1" >
+        <div *ngIf="Nivel1==true && Nivel2==false" >
           <div class="card" style="padding: 30px; border-radius: 20px">
             <div
               class="card-body subtitulo"
@@ -769,7 +782,7 @@
             </div>
             <div class="card-body" style="padding-bottom: 0px">
               <br />
-  
+
               <div class="row">
                 <div class="col-6">
                   <span
@@ -791,14 +804,14 @@
                   >
                 </div>
               </div>
-  
+
               <mat-progress-bar
                 mode="determinate"
                 style="height: 20px"
                 [value]="Desempenio"
               >
               </mat-progress-bar>
-  
+
               <div
                 class="row"
                 *ngIf="Desempenio >= 55"
@@ -859,7 +872,7 @@
                     DESAPROBADO
                   </button>
                 </div>
-  
+
                 <div class="col-md-8">
                   <span class="text-resultado"
                     >¡Ánimo! La siguiente vez lo harás mucho mejor</span>
@@ -900,7 +913,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="Nivel2==true && Nivel1==false && Examen.idSimuladorTogModo==2" >
+        <!-- <div *ngIf="Nivel2==true && Nivel1==false" >
           <div class="card" style="padding: 30px; border-radius: 20px">
             <div
               class="card-body subtitulo"
@@ -918,7 +931,7 @@
             </div>
             <div class="card-body" style="padding-bottom: 0px">
               <br />
-  
+
               <div class="row">
                 <div class="col-6">
                   <span
@@ -940,14 +953,14 @@
                   >
                 </div>
               </div>
-  
+
               <mat-progress-bar
                 mode="determinate"
                 style="height: 20px"
                 [value]="Desempenio"
               >
               </mat-progress-bar>
-  
+
               <div
                 class="row"
                 *ngIf="Desempenio >= 55"
@@ -1008,7 +1021,7 @@
                     DESAPROBADO
                   </button>
                 </div>
-  
+
                 <div class="col-md-8">
                   <span class="text-resultado"
                     >¡Ánimo! La siguiente vez lo harás mucho mejor</span>
@@ -1048,7 +1061,157 @@
               </div>
             </div>
           </div>
+        </div> -->
+        <div *ngIf="Nivel2==true && Nivel1==false" >
+          <div class="card" style="padding: 30px; border-radius: 20px">
+            <div
+              class="card-body subtitulo"
+              style="
+                border-bottom: 1px solid #e4e4e4;
+                border-radius: 20px 20px 0px 0px;
+                padding: 0px;
+              "
+            >
+              <h2 class="titulo">
+                <img src="../../../../assets/iconos/eye.svg" height="40" /><span>
+                  Detalles de la simulación</span
+                >
+              </h2>
+            </div>
+            <div class="card-body" style="padding-bottom: 0px">
+              <br />
+
+              <div class="row">
+                <div class="col-6">
+                  <span
+                    class="subtitulo float-left"
+                    style="color: #878787; font-weight: 700"
+                    >Puntaje General:</span
+                  >
+                </div>
+                <div class="col-6" style="text-align: right">
+                  <span
+                    id="PuntajeBarra"
+                    class="subtitulo"
+                    style="
+                      font-weight: 700;
+                      font-size: 25px;
+                      color: #0a86f2 !important;
+                    "
+                    >{{ Desempenio2 }}%</span
+                  >
+                </div>
+              </div>
+
+              <mat-progress-bar
+                mode="determinate"
+                style="height: 20px"
+                [value]="Desempenio2"
+              >
+              </mat-progress-bar>
+
+              <div
+                class="row"
+                *ngIf="Desempenio2 >= 60"
+                style="
+                  padding-top: 30px;
+                  padding-bottom: 20px;
+                  border-bottom: 1px solid #e4e4e4;
+                "
+              >
+                <div class="col-md-4 subtitulo">
+                  <span>Resultado:</span>
+                  <button
+                    class="btn btn-block btn-light"
+                    style="
+                      background: #fafafa;
+                      border: 1px solid #e4e4e4;
+                      margin-left: 12px;
+                    "
+                    disabled
+                  >
+                    <img
+                      src="../../../../assets/iconos/CheckMarcado.svg"
+                      height="20"
+                    />
+                    APROBADO
+                  </button>
+                </div>
+                <div class="col-md-8">
+                  <span class="text-resultado"
+                    >¡Ánimo! Sigue asi que lo estas haciendo bien</span
+                  >
+                </div>
+              </div>
+              <div
+                class="row"
+                *ngIf="Desempenio2 <= 59"
+                style="
+                  padding-top: 30px;
+                  padding-bottom: 20px;
+                  border-bottom: 1px solid #e4e4e4;
+                "
+              >
+                <div class="col-md-4 subtitulo">
+                  <span>Resultado:</span>
+                  <button
+                    class="btn btn-block btn-light"
+                    style="
+                      background: #fafafa;
+                      border: 1px solid #e4e4e4;
+                      margin-left: 12px;
+                    "
+                    disabled
+                  >
+                    <img
+                      src="../../../../assets/iconos/DesaprobadoMarcado.svg"
+                      height="20"
+                    />
+                    DESAPROBADO
+                  </button>
+                </div>
+
+                <div class="col-md-8">
+                  <span class="text-resultado"
+                    >¡Ánimo! La siguiente vez lo harás mucho mejor</span>
+                </div>
+              </div>
+              <div class="subtitulo" style="margin-top: 40px">
+                Puntaje por tema:
+              </div>
+              <div class="row" style="align-items: center; margin-top: 30px">
+                <ng-container *ngFor="let item of ExamenResultado2; let i = index">
+                  <div style="margin-bottom: 25px">
+                    <div
+                      class="col-12"
+                      style="margin-bottom: 5px; font-size: 14px"
+                    >
+                      <b>Categoría {{ i + 1 }}: </b>
+                      <span style="color: #868685">{{ item.nombre }}</span>
+                    </div>
+                    <div class="row">
+                      <div class="col-8 col-sm-10">
+                        <mat-progress-bar
+                          mode="determinate"
+                          style="height: 10px"
+                          [value]="item.desempenio"
+                        >
+                        </mat-progress-bar>
+                      </div>
+                      <div class="col-2 numeroReporte">
+                        {{ item.desempenio | number: "1.0-0" }}%
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+                <div style="font-size: 12px; color: #706e81">
+                  <i> * Nota: El puntaje para aprobar es 55%. </i>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>

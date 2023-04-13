@@ -66,7 +66,7 @@ export class PieComponent implements OnInit {
     this.pieChartData={
       labels: ["",""],
       datasets: [ {
-      data:[this.Puntos,this.TotalPuntos-this.Puntos] ,
+      data:[this.Puntos, (this.TotalPuntos>this.Puntos?(this.TotalPuntos-this.Puntos):0)] ,
       backgroundColor: [
         '#00C356',
         '#E8E8E5'

@@ -77,7 +77,7 @@ export class ExamenPreguntaComponent implements OnInit {
   public PausarContador=true;
   public RespuestaCorrectaNivel2:any;
   public RespuestaMarcadaNivel2:any;
-  
+
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -90,23 +90,27 @@ export class ExamenPreguntaComponent implements OnInit {
   ObtenerExamenDetallePreguntaPorId(){
     this._ExamenService.ObtenerExamenDetallePreguntaPorId(this.IdExamen).subscribe({
       next:(x)=>{
-        this.DatosExamen=x;
-        this.ListaPreguntas=x.listaPreguntas;
-        console.log(this.ListaPreguntas)
-        if(this.ListaPreguntas.length==0){
-          this._router.navigate(['/ModoExamen/ExamenReporte/'+this.IdExamen]);
-        }
-        else{
-          this.CantidadTotalPreguntas=x.preguntasPendientes+x.preguntasRespondidas;
-          this.ContadorPreguntaActual=this.ContadorPregunta+1+x.preguntasRespondidas;
-          this.NombreDominio=this.ListaPreguntas[0].dominioNombre;
-          this.ContadorAux=this.CantidadTotalPreguntas-1;
-          this.TiempoSegundo=x.tiempo;
-          //El modo examen dura 60 minutos Nivel 1 y 90 minutos Nivel 2
-          this.TiempoSegundoReversa=3600-x.tiempo;
-          this.PausarContador=false;
-          this.Cronometro(this.TiempoSegundo);
-          this.CronometroReversa(this.TiempoSegundoReversa);
+        if(x.examenReferencia!=null && x.examenReferencia.desempenio<55){
+          this._router.navigate(['ModoExamen'])
+        }else{
+          this.DatosExamen=x;
+          this.ListaPreguntas=x.listaPreguntas;
+          console.log(this.ListaPreguntas)
+          if(this.ListaPreguntas.length==0){
+            this._router.navigate(['/ModoExamen/ExamenReporte/'+this.IdExamen]);
+          }
+          else{
+            this.CantidadTotalPreguntas=x.preguntasPendientes+x.preguntasRespondidas;
+            this.ContadorPreguntaActual=this.ContadorPregunta+1+x.preguntasRespondidas;
+            this.NombreDominio=this.ListaPreguntas[0].dominioNombre;
+            this.ContadorAux=this.CantidadTotalPreguntas-1;
+            this.TiempoSegundo=x.tiempo;
+            //El modo examen dura 60 minutos Nivel 1 y 90 minutos Nivel 2
+            this.TiempoSegundoReversa=3600-x.tiempo;
+            this.PausarContador=false;
+            this.Cronometro(this.TiempoSegundo);
+            this.CronometroReversa(this.TiempoSegundoReversa);
+          }
         }
       }
     })
@@ -271,7 +275,7 @@ EnviarRespuesta(i:number){
       this._router.navigate(['/ModoExamen/ExamenReporte/'+this.IdExamen]);
     }
   }
-  
+
   Cronometro(TiempoSegundo:number){
     if(this.PausarContador==false){
       TiempoSegundo=TiempoSegundo+1;

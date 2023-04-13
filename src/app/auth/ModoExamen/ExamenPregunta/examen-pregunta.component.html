@@ -48,7 +48,7 @@
         </div>
         </div>
       </div>
-  
+
       <br />
   <!-- Enunciado -->
   <div class="card" style="border-radius:20px;">
@@ -94,9 +94,8 @@
                   <ng-container *ngIf="Respuesta.respuestaSelecionada!=1">check_box_outline_blank</ng-container>
                   </i>
                   </div>
-                  <div *ngIf="Respuesta.valor==1" [innerHTML]="Respuesta.respuesta| safeHtml" style="color: red;" >
-                  </div>
-                  <div *ngIf="Respuesta.valor==0" [innerHTML]="Respuesta.respuesta| safeHtml" >
+
+                  <div  [innerHTML]="Respuesta.respuesta| safeHtml" >
                   </div>
                 </div>
               </ng-container>
@@ -116,7 +115,7 @@
                 </ng-container>
               </div>
             <br />
-  
+
             <div *ngIf="Preguntas.idSimuladorTogNivel==1" class="row">
               <div  style="justify-content: left;display:flex">
                 <app-default-button  [confs]="{color:'primary',titulo:'Responder y salir'}"
@@ -142,7 +141,7 @@
     </div>
     <br>
     </div>
-  
+
   </ng-container>
   <ng-container *ngIf="DatosExamen==undefined">
     <div class="container" style="width: 63%;">
@@ -155,7 +154,7 @@
         </div>
       </div>
     </div>
-  
+
   </ng-container>
-  
-  
+
+

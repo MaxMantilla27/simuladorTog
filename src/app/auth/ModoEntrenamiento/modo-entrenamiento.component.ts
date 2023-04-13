@@ -57,8 +57,14 @@ export class ModoEntrenamientoComponent implements OnInit {
   public PromedioDominio=0
   public ContEntrenamiento=0;
   public Promedio=0;
+  public PromedioDominio2=0
+  public ContEntrenamiento2=0;
+  public Promedio2=0;
   public BotonResgistrar=false;
   public ResultadosPorDominio:any;
+  public ResultadosPorDominioV2:any;
+  public ResultadosPorDominioV2N1:Array<any>=[];
+  public ResultadosPorDominioV2N2:Array<any>=[];
   // public PuntajePorcentaje=0;
 
 
@@ -66,7 +72,8 @@ export class ModoEntrenamientoComponent implements OnInit {
     this.ListaExamenesIncompletos();
     this.ListaExamenesConcluidos();
     this.ListaExamenesPorModo();
-    this.ObtenerPromedioDominioPorModo()
+    // this.ObtenerPromedioDominioPorModo()
+    // this.ObtenerPromedioDominioPorModoV2();
   }
   RegistrarExamen(){
     if(this.userForm.valid && this.Nivel!=0){
@@ -77,7 +84,7 @@ export class ModoEntrenamientoComponent implements OnInit {
       this.RegistrarExamenEnvio.nombreExamen=this.userForm.get('NombreSimulacion')?.value;
       this.RegistrarExamenEnvio.tiempo=0,
       this.RegistrarExamenEnvio.idSimuladorTogDominio=0
-      
+
       console.log(this.RegistrarExamenEnvio)
       this._ExamenService.Registrar(this.RegistrarExamenEnvio).subscribe({
         next:(x)=>{
@@ -91,6 +98,7 @@ export class ModoEntrenamientoComponent implements OnInit {
     this.TiempoTotalEstudio=0;
     this._ExamenService.ListaExamenesPorModo(2).subscribe({
       next:(x)=>{
+        console.log(x)
         this.ListaEntrenamiento=x
         this.CantMEntrenamiento=x.length;
         this.ListaEntrenamiento.forEach((x:any)=>{
@@ -98,7 +106,6 @@ export class ModoEntrenamientoComponent implements OnInit {
           if(x.estadoExamen=="Finalizado")
           this.SimulacionesTotales=this.SimulacionesTotales+1;
         })
-        this.CantMEntrenamiento=x.length;
         this.SimulacionesInconclusas=this.CantMEntrenamiento-this.SimulacionesTotales;
       },
       complete: () => {
@@ -113,10 +120,11 @@ export class ModoEntrenamientoComponent implements OnInit {
   ListaExamenesIncompletos(){
     this._ExamenService.ListaExamenesIncompletos().subscribe({
       next:(x)=>{
+        console.log(x)
         this.SimulacionesIncompletas=x;
         this.SimulacionesIncompletas.forEach((y:any)=>{
           if(y.idEstadoExamen!=3 && y.idSimuladorTogModo==2){
-            this.ContSimulacionesIncompletas=x.length;
+            this.ContSimulacionesIncompletas++;
           }
         })
       }
@@ -126,24 +134,34 @@ export class ModoEntrenamientoComponent implements OnInit {
     this.ContEntrenamiento=0;
     this.PromedioDominio=0;
     this.Promedio=0;
+    this.ContEntrenamiento2=0;
+    this.PromedioDominio2=0;
+    this.Promedio2=0;
     this._ExamenService.ListaExamenesConcluidos().subscribe({
       next:(x)=>{
+        console.log(x)
         this.SimulacionesCompletadas=x;
+        console.log(x.filter((x:any)=>x.idSimuladorTogModo==2))
+        console.log(x.filter((x:any)=>x.idSimuladorTogModo==2 && x.idSimuladorTogNivel==1))
+        console.log(x.filter((x:any)=>x.idSimuladorTogModo==2 && x.idSimuladorTogNivel==2))
         this.SimulacionesCompletadas.forEach((y:any)=>{
-          if(y.idEstadoExamen==3 && y.idSimuladorTogModo==2){
-            this.ContSimulacionesCompletadas=x.length;
-            this.ContEntrenamiento=this.ContEntrenamiento+1;
-            this.PromedioDominio=this.PromedioDominio+y.desempenio;
+          if(y.idEstadoExamen==3 && y.idSimuladorTogModo==2 ){
+            this.ContSimulacionesCompletadas++;
+            if(y.idSimuladorTogNivel==1){
+              this.ContEntrenamiento++;
+              this.PromedioDominio+=y.desempenio;
+            }
+            if(y.idSimuladorTogNivel==2){
+              this.ContEntrenamiento2++;
+              this.PromedioDominio2+=y.desempenio;
+            }
           }
 
         })
         this.Promedio=Math.floor(this.PromedioDominio/this.ContEntrenamiento);
-        if(this.Promedio>=0){
-          this.Promedio=this.Promedio;
-        }
-        else{
-          this.Promedio=0;
-        }
+        this.Promedio2=Math.floor(this.PromedioDominio2/this.ContEntrenamiento2);
+
+
       }
     })
   }
@@ -151,6 +169,25 @@ export class ModoEntrenamientoComponent implements OnInit {
     this._ExamenService.ObtenerPromedioDominioPorModo(2).subscribe({
       next:(x)=>{
         this.ResultadosPorDominio=x
+      }
+    })
+  }
+  ObtenerPromedioDominioPorModoV2(){
+    this._ExamenService.ObtenerPromedioDominioPorModoV2(2,3).subscribe({
+      next:(x)=>{
+        this.ResultadosPorDominioV2=x
+        if(this.ResultadosPorDominioV2!=null){
+          this.ResultadosPorDominioV2.forEach((rd:any) => {
+            rd.Categoria=rd.leyenda.split('T')[1];
+            if(rd.idSimuladorTogNivel==1){
+              this.ResultadosPorDominioV2N1.push(rd)
+            }else{
+              this.ResultadosPorDominioV2N2.push(rd)
+            }
+          });
+        }
+        console.log(this.ResultadosPorDominioV2N1)
+        console.log(this.ResultadosPorDominioV2N2)
       }
     })
   }

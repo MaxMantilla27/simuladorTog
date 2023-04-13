@@ -1,25 +1,35 @@
 
   .ContenidoDonaPuntos2{
-    line-height: 20px;
+    line-height: 30px;
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
     color: #0684f2;
     border-radius: 100%;
     position: absolute;
-    margin-top: 65px;
-    margin-left: 53px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     font-weight: 700;
   }
   .ContenidoDonaPuntos1{
-    line-height: 20px;
+    line-height: 30px;
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
     color: #0684f2;
     border-radius: 100%;
     position: absolute;
-    margin-top: 65px;
-    margin-left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
     font-weight: 700;
   }
-  
-  
+

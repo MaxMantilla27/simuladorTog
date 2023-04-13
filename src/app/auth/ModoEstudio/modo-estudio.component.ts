@@ -59,13 +59,17 @@ export class ModoEstudioComponent implements OnInit {
   public SimulacionesCompletadas:any;
   public ContSimulacionesCompletadas=0;
   public ResultadosPorDominio:any;
+  public ResultadosPorDominioV2:any;
+  public ResultadosPorDominioV2N1:Array<any>=[];
+  public ResultadosPorDominioV2N2:Array<any>=[];
   public BotonResgistrar=false;
   ngOnInit(): void {
     this.ListaDominioCombo();
     this.ListaExamenesPorModo();
     this.ListaExamenesIncompletos();
     this.ListaExamenesConcluidos();
-    this.ObtenerPromedioDominioPorModo();
+    //this.ObtenerPromedioDominioPorModo();
+    this.ObtenerPromedioDominioPorModoV2();
   }
 
   RegistrarExamen(){
@@ -145,6 +149,25 @@ export class ModoEstudioComponent implements OnInit {
     this._ExamenService.ObtenerPromedioDominioPorModo(1).subscribe({
       next:(x)=>{
         this.ResultadosPorDominio=x
+      }
+    })
+  }
+  ObtenerPromedioDominioPorModoV2(){
+    this._ExamenService.ObtenerPromedioDominioPorModoV2(1,3).subscribe({
+      next:(x)=>{
+        this.ResultadosPorDominioV2=x
+        if(this.ResultadosPorDominioV2!=null){
+          this.ResultadosPorDominioV2.forEach((rd:any) => {
+            rd.Categoria=rd.leyenda.split('T')[1];
+            if(rd.idSimuladorTogNivel==1){
+              this.ResultadosPorDominioV2N1.push(rd)
+            }else{
+              this.ResultadosPorDominioV2N2.push(rd)
+            }
+          });
+        }
+        console.log(this.ResultadosPorDominioV2N1)
+        console.log(this.ResultadosPorDominioV2N2)
       }
     })
   }

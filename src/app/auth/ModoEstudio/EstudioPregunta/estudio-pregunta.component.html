@@ -103,7 +103,7 @@
                       </i>
                       </div>
                       <!-- Marcar respuesta en roja -->
-                      <div *ngIf="Respuesta.valor==1" [innerHTML]="Respuesta.respuesta| safeHtml" style="color: red;" >
+                      <div *ngIf="Respuesta.valor==1" [innerHTML]="Respuesta.respuesta| safeHtml" >
                       </div>
                       <div *ngIf="Respuesta.valor==0" [innerHTML]="Respuesta.respuesta| safeHtml" >
                       </div>
@@ -127,7 +127,7 @@
                   </ng-container>
                 </div>
                 <br />
-  
+
                 <div *ngIf="Preguntas.idSimuladorTogNivel==1" class="row">
                   <div  style="justify-content: left;display:flex">
                     <app-default-button  [confs]="{color:'primary',titulo:'Responder y salir'}"
@@ -147,14 +147,14 @@
                 <br />
               </div>
             </ng-container>
-  
+
             <ng-container *ngIf="Retroalimentacion==true " >
               <div *ngIf="Preguntas.idSimuladorTogNivel==1">
                 <div id="Retroalimentacion">
                   <br />
-                  
+
                   <div *ngIf="RespuestaCorrecta==true" class="card" style="padding: 10px 35px; background: #e3ecff; border: solid 0px ">
-    
+
                       <div style="display: flex">
                         <div>
                           <img src="../../../../assets/iconos/feliz_2.svg" style="height:30px;margin-right: 35px" />
@@ -165,7 +165,7 @@
                       </div>
                   </div>
                   <div *ngIf="RespuestaCorrecta==false" class="card" style="padding: 10px 35px; background: #e3ecff; border: solid 0px ">
-    
+
                     <div style="display: flex">
                       <div>
                         <img src="../../../../assets/iconos/triste-02.svg" style="height:30px;margin-right: 35px; margin-top: 12px;" />
@@ -179,10 +179,10 @@
                         </div>
                       </div>
                     </div>
-    
+
                 </div>
                   <br />
-    
+
                   <div class="subtitulo btn-block" style=" margin-top: 3px; margin-bottom: 10px;">
                     Respuesta correcta:
                   </div>
@@ -192,7 +192,7 @@
                       </div>
                     </ng-container>
                   </div>
-    
+
                   <div class="subtitulo btn-block" style="margin-top: 15px; margin-bottom: 10px;">Explicación de la respuesta</div>
                   <div *ngIf="Preguntas.pregunta.preguntaImagen.length!=0">
                     <ng-container *ngFor="let Imagen of Preguntas.pregunta.preguntaImagen">
@@ -203,7 +203,7 @@
                   </div>
                   <div style="color: #878787;"  [innerHTML]="Preguntas.pregunta.retroalimentacion | safeHtml">
                   </div>
-    
+
                   <br />
                   <div class="row">
                     <div  style="justify-content: left;display:flex">
@@ -216,13 +216,13 @@
                   <br />
               </div>
               </div>
-             
+
               <div *ngIf="Preguntas.idSimuladorTogNivel==2">
                 <div id="Retroalimentacion">
                   <br />
-                  
+
                   <div *ngIf="RespuestaCorrecta==true" class="card" style="padding: 10px 35px; background: #e3ecff; border: solid 0px ">
-    
+
                       <div style="display: flex">
                         <div>
                           <img src="../../../../assets/iconos/feliz_2.svg" style="height:30px;margin-right: 35px" />
@@ -233,7 +233,7 @@
                       </div>
                   </div>
                   <div *ngIf="RespuestaCorrecta==false" class="card" style="padding: 10px 35px; background: #e3ecff; border: solid 0px ">
-    
+
                     <div style="display: flex">
                       <div>
                         <img src="../../../../assets/iconos/triste-02.svg" style="height:30px;margin-right: 35px; margin-top: 12px;" />
@@ -247,10 +247,10 @@
                         </div> -->
                       </div>
                     </div>
-    
+
                 </div>
                   <br />
-    
+
                   <div class="subtitulo btn-block" style=" margin-top: 3px; margin-bottom: 10px;">
                     Respuesta correcta:
                   </div>
@@ -258,12 +258,12 @@
                     <div  [innerHTML]="RespuestaCorrectaNivel2.respuesta | safeHtml">
                     </div>
                   </div>
-    
+
                   <div class="subtitulo btn-block" style="margin-top: 15px; margin-bottom: 10px;">Explicación de la respuesta</div>
-                  
+
                   <div style="color: #878787;"  [innerHTML]="RespuestaMarcadaNivel2.explicacion| safeHtml">
                   </div>
-    
+
                   <br />
                   <div class="row">
                     <div  style="justify-content: left;display:flex">
@@ -276,16 +276,16 @@
                   <br />
               </div>
               </div>
-              
+
             </ng-container>
-  
+
           </ng-container>
         </ng-container>
         </div>
       </div>
       <br>
     </div>
-  
+
   </ng-container>
   <ng-container *ngIf="DatosExamen==undefined">
     <div class="container" style="width: 63%;">
@@ -298,7 +298,6 @@
         </div>
       </div>
     </div>
-  
+
   </ng-container>
-  
-  
+

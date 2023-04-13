@@ -41,7 +41,9 @@ export class ModoExamenComponent implements OnInit {
   })
   public DominioSeleccionado=0;
   public SimulacionesTotales=0;
+  public SimulacionesTotales2=0;
   public SimulacionesInconclusas=0;
+  public SimulacionesInconclusas2=0;
   public CantMExamen=0;
   public ListaExamen:any;
   public TiempoTotalEstudio=0;
@@ -49,15 +51,26 @@ export class ModoExamenComponent implements OnInit {
   public Minuto=0;
   public HoraMostrar='';
   public MinutoMostrar='';
-  public SimulacionesIncompletas:any;
+  public SimulacionesIncompletas:Array<any>=[];
   public ContSimulacionesIncompletas=0;
-  public SimulacionesCompletadas:any;
+  public SimulacionesCompletadas:Array<any>=[];
+
+
+  public GroupSimulacionesCompletadas:Array<any>=[];
+
+  public GroupSimulacionesIncompletas:Array<any>=[];
+
   public ContSimulacionesCompletadas=0;
   public PromedioDominio=0
   public ContEntrenamiento=0;
   public Promedio=0;
   public IntentosAprobados=0;
+  public PromedioDominio2=0
+  public ContEntrenamiento2=0;
+  public Promedio2=0;
+  public IntentosAprobados2=0;
   public PorcentajeIntentosAprobados=0;
+  public PorcentajeIntentosAprobados2=0;
   public ExamenIntento:any;
   public ExamenPorIntento:ExamenIntentoDTO={
     Intento1:0,
@@ -90,7 +103,6 @@ export class ModoExamenComponent implements OnInit {
 
   ngOnInit(): void {
     this.ListaExamenesPorModo();
-    this.ListaExamenesIncompletos();
     this.ListaExamenesConcluidos();
     this.ObtenerPromedioIntento();
     this.ObtenerPromedioDominioPorModo();
@@ -124,6 +136,7 @@ export class ModoExamenComponent implements OnInit {
       this.RegistrarExamenEnvio.nombreExamen=this.userForm.get('NombreSimulacion')?.value;
       this.RegistrarExamenEnvio.tiempo=0,
       this.RegistrarExamenEnvio.idSimuladorTogDominio=0
+      this.RegistrarExamenEnvio.IdTogExamenReferencia=this.IdExamen
       this._ExamenService.Registrar(this.RegistrarExamenEnvio).subscribe({
         next:(x)=>{
         }
@@ -139,11 +152,24 @@ export class ModoExamenComponent implements OnInit {
         this.CantMExamen=x.length;
         this.ListaExamen.forEach((x:any)=>{
           this.TiempoTotalEstudio=this.TiempoTotalEstudio+x.tiempo;
-          if(x.estadoExamen=="Finalizado")
-          this.SimulacionesTotales=this.SimulacionesTotales+1;
+          if(x.estadoExamen=="Finalizado"){
+            if(x.idSimuladorTogNivel==1){
+              this.SimulacionesTotales=this.SimulacionesTotales+1;
+            }
+            if(x.idSimuladorTogNivel==2){
+              this.SimulacionesTotales2++;
+            }
+          }else{
+            if(x.idSimuladorTogNivel==1){
+              this.SimulacionesInconclusas++;
+            }
+            if(x.idSimuladorTogNivel==2){
+              this.SimulacionesInconclusas2++;
+            }
+          }
         })
         this.CantMExamen=x.length;
-        this.SimulacionesInconclusas=this.CantMExamen-this.SimulacionesTotales;
+        //this.SimulacionesInconclusas=this.CantMExamen-this.SimulacionesTotales;
       },
       complete: () => {
         this.Hora = Math.floor(this.TiempoTotalEstudio / 3600);
@@ -158,12 +184,56 @@ export class ModoExamenComponent implements OnInit {
   ListaExamenesIncompletos(){
     this._ExamenService.ListaExamenesIncompletos().subscribe({
       next:(x)=>{
-        this.SimulacionesIncompletas=x;
-        this.SimulacionesIncompletas.forEach((y:any)=>{
-          if(y.idEstadoExamen!=3 && y.idSimuladorTogModo==3){          
+        //this.SimulacionesIncompletas=x;
+        x.forEach((y:any)=>{
+          if(y.idEstadoExamen==2 && y.idSimuladorTogModo==3){
+            this.SimulacionesIncompletas.push(y)
             this.ContSimulacionesIncompletas=x.length;
           }
         })
+        var padre:Array<any>=[]
+        var hijos:Array<any>=[]
+        this.SimulacionesCompletadas.forEach((y:any)=>{
+          console.log(y)
+          if(y.idTogExamenReferencia==null){
+            padre.push(y)
+          }else{
+            hijos.push(y)
+          }
+        });
+        this.SimulacionesIncompletas.forEach((y:any)=>{
+          console.log(y)
+          if(y.idTogExamenReferencia==null){
+            padre.push(y)
+          }else{
+            hijos.push(y)
+          }
+        });
+        padre.forEach((p:any)=>{
+          var existe=false
+          hijos.forEach((h:any)=>{
+            if(p.id==h.idTogExamenReferencia){
+              existe=true
+              p.Hijo=h
+              if(p.idEstadoExamen==3 && h.idEstadoExamen==3){
+                this.GroupSimulacionesCompletadas.push(p)
+              }else{
+                this.GroupSimulacionesIncompletas.push(p)
+              }
+            }
+          })
+          if(existe==false){
+            p.Hijo=null
+            if(p.idEstadoExamen==3){
+              this.GroupSimulacionesCompletadas.push(p)
+            }else{
+              this.GroupSimulacionesIncompletas.push(p)
+            }
+          }
+        })
+        console.log(padre)
+        console.log(this.GroupSimulacionesCompletadas)
+        console.log(this.GroupSimulacionesIncompletas)
       }
     })
   }
@@ -174,71 +244,97 @@ export class ModoExamenComponent implements OnInit {
     this._ExamenService.ListaExamenesConcluidos().subscribe({
       next:(x)=>{
         if(x!=undefined){
-          this.SimulacionesCompletadas=x;
-          this.SimulacionesCompletadas.forEach((y:any)=>{
-          if(y.idEstadoExamen==3 && y.idSimuladorTogModo==3){
-            this.ContSimulacionesCompletadas=x.length;
-            this.ContEntrenamiento=this.ContEntrenamiento+1;
-            this.PromedioDominio=this.PromedioDominio+y.desempenio;
-            if(y.desempenio>=55){
-              this.IntentosAprobados=this.IntentosAprobados+1
+          //this.SimulacionesCompletadas=x;
+          x.forEach((y:any)=>{
+            if(y.idEstadoExamen==3 && y.idSimuladorTogModo==3){
+              this.SimulacionesCompletadas.push(y)
+              this.ContSimulacionesCompletadas++;
+              if(y.idSimuladorTogNivel==1){
+                this.ContEntrenamiento++;
+                this.PromedioDominio+=y.desempenio;
+                if(y.desempenio>=55){
+                  this.IntentosAprobados++
+                }
+              }
+              if(y.idSimuladorTogNivel==2){
+                this.ContEntrenamiento2++;
+                this.PromedioDominio2+=y.desempenio;
+                if(y.desempenio>=55){
+                  this.IntentosAprobados2++
+                }
+              }
+              if(y.numeroIntento==1){
+                this.ExamenPorIntentoUsuario.Intento1=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==2){
+                this.ExamenPorIntentoUsuario.Intento2=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==3){
+                this.ExamenPorIntentoUsuario.Intento3=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==4){
+                this.ExamenPorIntentoUsuario.Intento4=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==5){
+                this.ExamenPorIntentoUsuario.Intento5=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==6){
+                this.ExamenPorIntentoUsuario.Intento6=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==7){
+                this.ExamenPorIntentoUsuario.Intento7=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==8){
+                this.ExamenPorIntentoUsuario.Intento8=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==9){
+                this.ExamenPorIntentoUsuario.Intento9=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
+              if(y.numeroIntento==10){
+                this.ExamenPorIntentoUsuario.Intento10=Math.floor(y.desempenio)
+                this.DatosIntentoUsuario=true;
+              }
             }
-            if(y.numeroIntento==1){
-              this.ExamenPorIntentoUsuario.Intento1=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==2){
-              this.ExamenPorIntentoUsuario.Intento2=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==3){
-              this.ExamenPorIntentoUsuario.Intento3=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==4){
-              this.ExamenPorIntentoUsuario.Intento4=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==5){
-              this.ExamenPorIntentoUsuario.Intento5=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==6){
-              this.ExamenPorIntentoUsuario.Intento6=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==7){
-              this.ExamenPorIntentoUsuario.Intento7=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==8){
-              this.ExamenPorIntentoUsuario.Intento8=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==9){
-              this.ExamenPorIntentoUsuario.Intento9=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-            if(y.numeroIntento==10){
-              this.ExamenPorIntentoUsuario.Intento10=Math.floor(y.desempenio)
-              this.DatosIntentoUsuario=true;
-            }
-          }
-        })
-        this.Promedio=Math.floor(this.PromedioDominio/this.ContEntrenamiento);
-        var aux=(this.IntentosAprobados/this.ContEntrenamiento)*100
-          this.PorcentajeIntentosAprobados=Math.floor(aux)
-        if(this.Promedio>=0){
-          this.Promedio=this.Promedio;
-        }
-        else if(this.PorcentajeIntentosAprobados>=0){
+          })
+          this.Promedio=Math.floor(this.PromedioDominio/this.ContEntrenamiento);
           var aux=(this.IntentosAprobados/this.ContEntrenamiento)*100
           this.PorcentajeIntentosAprobados=Math.floor(aux)
-        }
-        else{
-          this.Promedio=0;
-          this.PorcentajeIntentosAprobados=0
-        }
+          if(this.Promedio>=0){
+            this.Promedio=this.Promedio;
+          }
+          else if(this.PorcentajeIntentosAprobados>=0){
+            var aux=(this.IntentosAprobados/this.ContEntrenamiento)*100
+            this.PorcentajeIntentosAprobados=Math.floor(aux)
+          }
+          else{
+            this.Promedio=0;
+            this.PorcentajeIntentosAprobados=0
+          }
+          this.Promedio2=Math.floor(this.PromedioDominio2/this.ContEntrenamiento2);
+          aux=(this.IntentosAprobados2/this.ContEntrenamiento2)*100
+          this.PorcentajeIntentosAprobados2=Math.floor(aux)
+          if(this.Promedio2>=0){
+            this.Promedio2=this.Promedio2;
+          }
+          else if(this.PorcentajeIntentosAprobados2>=0){
+            aux=(this.IntentosAprobados2/this.ContEntrenamiento2)*100
+            this.PorcentajeIntentosAprobados2=Math.floor(aux)
+          }
+          else{
+            this.Promedio=0;
+            this.PorcentajeIntentosAprobados2=0
+          }
+          console.log(this.SimulacionesCompletadas)
+          this.ListaExamenesIncompletos();
         }
       }
     })
