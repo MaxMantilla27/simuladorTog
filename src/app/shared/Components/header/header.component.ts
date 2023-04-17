@@ -7,6 +7,7 @@ import { DatoObservableDTO } from 'src/app/Models/DatoObservableDTO';
 import { AvatarService } from '../../Services/Avatar/avatar.service';
 import { HelperService } from '../../Services/helper.service';
 import { SessionStorageService } from '../../Services/session-storage.service';
+import { ConfiguracionSimuladorService } from '../../Services/ConfigruacionSimulador/configuracion-simulador.service';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,8 @@ export class HeaderComponent implements OnInit {
     private _router: Router,
     private _SessionStorageService:SessionStorageService,
     private _HelperService:HelperService,
-    private _AvatarService:AvatarService
+    private _AvatarService:AvatarService,
+    private _ConfiguracionService: ConfiguracionSimuladorService
   ) { }
   private signal$ = new Subject();
 
@@ -52,9 +54,10 @@ export class HeaderComponent implements OnInit {
     topC: ''
   };
   public token: boolean = this._SessionStorageService.validateTokken();
-
+  public listaConfiguracion:any;
   ngOnInit(): void {
     if (this.token) {
+      this.ObtenerConfiguracionSimulador();
       this.ObtenerAvatar();
     }
   }
@@ -80,5 +83,12 @@ export class HeaderComponent implements OnInit {
     this._SessionStorageService.DeleteToken();
     this._HelperService.enviarDatoCuenta(this.DatoObservable);
     this._router.navigate(['Account/login']);
+  }
+  ObtenerConfiguracionSimulador(){
+    this._ConfiguracionService.ObtenerConfiguracionSimulador().subscribe({
+      next:(x)=>{
+       this.listaConfiguracion = x
+      }
+    })
   }
 }

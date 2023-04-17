@@ -2,8 +2,8 @@
     <div class="container">
       <div class="row rowcont" >
         <div class="col-12 col-sm-12 col-md-12 logo-container">
-            <div>
-                <img class="logo-simulador" src="../../../assets/imagenes/logotipo-TOGAF-Tento.svg"/>
+            <div *ngIf="listaConfiguracion!=undefined">
+                <img class="logo-simulador" src={{listaConfiguracion.logo}}/>
             </div>
         </div>
         <div class="container" style="display: flex;justify-content: center;">
@@ -48,14 +48,14 @@
                     </mat-checkbox>
                     <app-default-button style="align-items:center" [confs]="{color:'primary',titulo:'Iniciar sesión'}"
                       [style]="'width: 70%;margin-top: 20px;background:#FF7424'"></app-default-button>
-  
+
                   </div>
                   <a style="color: #9d9d9c; font-size: 13px;margin-top: 15px;" [href]="'https://bsginstitute.com/Account/ForgotPassword'" target="_blank">No recuerdo mi contraseña</a>
                 </div>
               </form>
             </div>
           </div>
-  
+
         </div>
       </div>
     </div>

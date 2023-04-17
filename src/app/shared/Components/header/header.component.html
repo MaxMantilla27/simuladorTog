@@ -1,10 +1,13 @@
 <mat-toolbar class="matTolBArHeader fixed-top" >
-  <div class="button-Menu">
+  <div  class="button-Menu" >
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
     mat-icon-button [matMenuTriggerFor]="menu" #triger="matMenuTrigger" (click)="OpenMenu()">
       <mat-icon  style="font-size: 35px;">menu</mat-icon>
     </button>
-    <img style="height:50px" src="../../../assets/imagenes/logotipo-TOGAF-Tento.svg" alt="">
+    <div *ngIf="listaConfiguracion!=undefined">
+      <img src={{listaConfiguracion.logo}} alt="">
+    </div>
+
 
   </div>
   <div class="avatar">
