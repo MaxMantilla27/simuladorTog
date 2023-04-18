@@ -93,9 +93,7 @@ export class EstudioPreguntaComponent implements OnInit {
     this._ExamenService.ObtenerExamenDetallePreguntaPorId(this.IdExamen).subscribe({
       next:(x)=>{
         this.DatosExamen=x;
-        console.log(this.DatosExamen)
         this.ListaPreguntas=x.listaPreguntas;
-        console.log(this.ListaPreguntas)
         if(this.ListaPreguntas.length==0){
           this._router.navigate(['/ModoEstudio/EstudioReporte/'+this.IdExamen]);
         }
@@ -184,7 +182,6 @@ VerificarMarcadoNivel2(i:number){
     this.RegistroEnvioRespuesta.desempenio=0,
     this.RegistroEnvioRespuesta.percentil=0,
     this.RegistroEnvioRespuesta.idSimuladorTipoRespuesta=this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta,
-    console.log(this.ListaPreguntas)
     this.ListaPreguntas[i].pregunta.respuesta.forEach((x:any)=>{
       if(x.respuestaSelecionada==1){
         if(this.ContadorPreguntaActual<=this.ContadorAux){
@@ -209,7 +206,6 @@ VerificarMarcadoNivel2(i:number){
       }
 
     })
-    console.log(this.RegistroEnvioRespuesta)
     this._ExamenService.RegistrarRespuestaSeleccion(this.RegistroEnvioRespuesta).subscribe({
       next:(x)=>{
         this.RespuestaCorrecta=x
@@ -233,7 +229,6 @@ VerificarMarcadoNivel2(i:number){
     this.RegistroEnvioRespuesta.desempenio=0,
     this.RegistroEnvioRespuesta.percentil=0,
     this.RegistroEnvioRespuesta.idSimuladorTipoRespuesta=this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta,
-    console.log(this.ListaPreguntas)
     this.ListaPreguntas[i].pregunta.respuesta2.forEach((x:any)=>{
       if(x.respuestaSelecionada==1){
         if(this.ContadorPreguntaActual<=this.ContadorAux){
@@ -258,10 +253,8 @@ VerificarMarcadoNivel2(i:number){
       }
 
     })
-    console.log(this.RegistroEnvioRespuesta)
     this._ExamenService.RegistrarRespuestaSeleccionNivel2(this.RegistroEnvioRespuesta).subscribe({
       next:(x)=>{
-       console.log(x)
         // this.RespuestaCorrecta=x
         if(x.respuestaMarcada.puntaje==5)
         {
@@ -285,9 +278,7 @@ VerificarMarcadoNivel2(i:number){
           this.MensajeRespuestaNivel2='Menos adecuada o incorrecta ';
         }
         this.RespuestaCorrectaNivel2=x.respuestaCorrecta
-        console.log(this.RespuestaCorrectaNivel2)
         this.RespuestaMarcadaNivel2=x.respuestaMarcada
-        console.log(this.RespuestaMarcadaNivel2)
       },
       complete:()=>{
         this.Retroalimentacion=true

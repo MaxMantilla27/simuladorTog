@@ -162,7 +162,6 @@ export class HomeComponent implements OnInit {
       next:(x)=>{
         if(x!=null){
           this.DominioResultado=x.dominioResultado;
-          console.log(this.DominioResultado)
         this.ResultadoDominio1=Math.floor(x.dominioResultado[0].desempenio);
         this.ResultadoDominio2=Math.floor(x.dominioResultado[1].desempenio);
         this.ResultadoDominio3=Math.floor(x.dominioResultado[2].desempenio);
@@ -191,7 +190,6 @@ export class HomeComponent implements OnInit {
       next:(x)=>{
         if(x!=null){
           this.DominioResultado=x.dominioResultado;
-          console.log(this.DominioResultado)
         this.ResultadoDominio12=Math.floor(x.dominioResultado[0].desempenio);
         this.ResultadoDominio13=Math.floor(x.dominioResultado[1].desempenio);
         this.ResultadoDominio14=Math.floor(x.dominioResultado[2].desempenio);
@@ -214,11 +212,10 @@ export class HomeComponent implements OnInit {
   ObtenerNivelUsuario(){
     this._ExamenService.ObtenerNivelUsuario().subscribe({
       next:(x)=>{
+        console.log(x)
         this.NivelUsuario=x.rango.nivel;
         this.SiguienteNivelUsuario=x.rango.siguienteNivel;
         this.PuntosNivel = x.puntosNivel;
-        this.PuntosNivelMaximo = x.maximo;
-        this.PuntosNivelPromedio = x.promedio;
         this.TotalPuntos=x.rango.hasta
       }
     })
@@ -232,7 +229,6 @@ export class HomeComponent implements OnInit {
     });
     this._ExamenService.ListaExamenesPorModo(2).subscribe({
       next:(x)=>{
-        console.log(x)
         this.ListaEntrenamiento=x
         this.CantMEntrenamiento=x.length;
       }
@@ -253,7 +249,6 @@ export class HomeComponent implements OnInit {
   ObtenerPromedioDominioPorModo(){
     this._ExamenService.ObtenerPromedioDominioPorModo(1).subscribe({
       next:(x)=>{
-        console.log(x)
         if(x!=null){
           this.ResultadosPorDominio=x
 
@@ -276,15 +271,12 @@ export class HomeComponent implements OnInit {
             }
           });
         }
-        console.log(this.ResultadosPorDominioV2N1)
-        console.log(this.ResultadosPorDominioV2N2)
       }
     })
   }
   ListaDominioCombo(){
     this._DominioService.ListaDominioCombo().subscribe({
       next:(x)=>{
-        console.log(x)
         this.Dominio=x;
       }
     })

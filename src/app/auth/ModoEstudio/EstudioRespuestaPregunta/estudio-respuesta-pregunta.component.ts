@@ -40,9 +40,8 @@ export class EstudioRespuestaPreguntaComponent implements OnInit {
       this.IdExamen = auxParams[auxParams.length -1];
       let auxParamsNivel = params["IdNivel"].split('-')
       this.IdNivel = auxParamsNivel[auxParamsNivel.length -1];
-      console.log(this.IdNivel)
     })
-   
+
     if(this.IdNivel==1)
     {
       this.ObtenerRespuestaExamenDetallePreguntaPorId()
@@ -55,7 +54,6 @@ export class EstudioRespuestaPreguntaComponent implements OnInit {
   ObtenerRespuestaExamenDetallePreguntaPorId(){
     this._ExamenService.ObtenerRespuestaExamenDetallePreguntaPorId(this.IdExamen).subscribe({
       next:(x)=>{
-        console.log(x)
         this.DatosExamen=x;
         this.ListaPreguntas=x.pregunta
         this.CantidadTotalPreguntas=x.length;
@@ -68,7 +66,6 @@ export class EstudioRespuestaPreguntaComponent implements OnInit {
   ObtenerRespuestaExamenDetallePreguntaPorIdNivel2(){
     this._ExamenService.ObtenerRespuestaExamenDetallePreguntaPorIdNivel2(this.IdExamen).subscribe({
       next:(x)=>{
-        console.log(x)
         this.DatosExamen=x;
         this.ListaPreguntas=x.pregunta
         this.CantidadTotalPreguntas=x.length;

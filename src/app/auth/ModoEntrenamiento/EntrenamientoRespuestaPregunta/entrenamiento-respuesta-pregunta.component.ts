@@ -39,7 +39,6 @@ export class EntrenamientoRespuestaPreguntaComponent implements OnInit {
       this.IdExamen = auxParams[auxParams.length -1];
       let auxParamsNivel = params["IdNivel"].split('-')
       this.IdNivel = auxParamsNivel[auxParamsNivel.length -1];
-      console.log(this.IdNivel)
     })
     if(this.IdNivel==1)
     {
@@ -54,7 +53,6 @@ export class EntrenamientoRespuestaPreguntaComponent implements OnInit {
     this._ExamenService.ObtenerRespuestaExamenDetallePreguntaPorId(this.IdExamen).subscribe({
       next:(x)=>{
         this.DatosExamen=x;
-        console.log(x)
         this.ListaPreguntas=x.pregunta
         this.CantidadTotalPreguntas=x.length;
         this.ContadorPreguntaActual=this.ContadorPregunta+1;
@@ -66,7 +64,6 @@ export class EntrenamientoRespuestaPreguntaComponent implements OnInit {
     this._ExamenService.ObtenerRespuestaExamenDetallePreguntaPorIdNivel2(this.IdExamen).subscribe({
       next:(x)=>{
         this.DatosExamen=x;
-        console.log(x)
         this.ListaPreguntas=x.pregunta
         this.CantidadTotalPreguntas=x.length;
         this.ContadorPreguntaActual=this.ContadorPregunta+1;

@@ -53,17 +53,16 @@ export class ExamenIntermedioComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       let auxParams = params["IdExamen"].split('-')
       this.IdExamen = auxParams[auxParams.length -1];
-     
+
     })
     this.ObtenerExamenReporteResultadosPorId()
-    
-    
+
+
 
   }
   ObtenerExamenReporteResultadosPorId(){
     this._ExamenService.ObtenerExamenReporteResultadosPorId(this.IdExamen).subscribe({
       next:(x)=>{
-        console.log(x)
         this.ExamenResultado=x.dominioResultado;
         this.Examen=x.examen;
         this.NombreExamen=x.examen.nombreExamen;
@@ -91,14 +90,13 @@ export class ExamenIntermedioComponent implements OnInit {
   {
     this._ExamenService.ObtenerIdExamenNivel2(this.NumeroIntento).subscribe({
       next:(x)=>{
-        console.log(x)
         this.IdExamenNivel2=x;
       },
       complete:()=>{
       }
     })
-  
+
   }
-  
+
 
 }

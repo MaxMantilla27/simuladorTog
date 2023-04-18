@@ -63,7 +63,9 @@ export class ModoEstudioComponent implements OnInit {
   public ResultadosPorDominioV2N1:Array<any>=[];
   public ResultadosPorDominioV2N2:Array<any>=[];
   public BotonResgistrar=false;
+  public ListaLogo:any;
   ngOnInit(): void {
+    this.ObtenerLogo()
     this.ListaDominioCombo();
     this.ListaExamenesPorModo();
     this.ListaExamenesIncompletos();
@@ -166,8 +168,6 @@ export class ModoEstudioComponent implements OnInit {
             }
           });
         }
-        console.log(this.ResultadosPorDominioV2N1)
-        console.log(this.ResultadosPorDominioV2N2)
       }
     })
   }
@@ -180,5 +180,13 @@ export class ModoEstudioComponent implements OnInit {
     this.Nivel1=false;
     this.Nivel2=true;
     this.Nivel=2
+  }
+  ObtenerLogo(){
+    this._DominioService.ObtenerLogo().subscribe({
+      next:(x)=>{
+        this.ListaLogo = x;
+        console.log(this.ListaLogo)
+      }
+    })
   }
 }

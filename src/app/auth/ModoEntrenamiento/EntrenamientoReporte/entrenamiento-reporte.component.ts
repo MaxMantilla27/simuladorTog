@@ -52,7 +52,6 @@ export class EntrenamientoReporteComponent implements OnInit {
   ObtenerExamenReporteResultadosPorId(){
     this._ExamenService.ObtenerExamenReporteResultadosPorId(this.IdExamen).subscribe({
       next:(x)=>{
-        console.log(x)
         this.EntrenamientoResultado=x.dominioResultado;
         this.Examen=x.examen;
         this.NombreExamen=x.examen.nombreExamen;
@@ -81,12 +80,8 @@ export class EntrenamientoReporteComponent implements OnInit {
   {
     this._ExamenService.ObtenerRespuestasCorrectas(this.IdExamen).subscribe({
       next:(x)=>{
-        console.log(x)
         this.CantRespuestasCorrectas=x.respuestasCorrectas;
-        console.log(this.CantRespuestasCorrectas)
         this.CantRespuestasIncorrectas=x.respuestasIncorrectas;
-        console.log(this.CantRespuestasIncorrectas)
-
       },
       complete:()=>{
       }

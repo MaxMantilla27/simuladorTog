@@ -14,7 +14,7 @@ export interface RegistroTogExamenDTO{
   percentil?:number,
   idSimuladorTogTarea?:number,
   idSimuladorTogDominio:number,
-  IdTogExamenReferencia?:number
+  IdTogExamen?:number
 }
 export interface RegistroTogExamenRespuestaDTO{
   id:number,

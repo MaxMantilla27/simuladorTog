@@ -95,7 +95,6 @@ export class ExamenPreguntaComponent implements OnInit {
         }else{
           this.DatosExamen=x;
           this.ListaPreguntas=x.listaPreguntas;
-          console.log(this.ListaPreguntas)
           if(this.ListaPreguntas.length==0){
             this._router.navigate(['/ModoExamen/ExamenReporte/'+this.IdExamen]);
           }

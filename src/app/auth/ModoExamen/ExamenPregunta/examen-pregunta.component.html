@@ -94,8 +94,10 @@
                   <ng-container *ngIf="Respuesta.respuestaSelecionada!=1">check_box_outline_blank</ng-container>
                   </i>
                   </div>
-
-                  <div  [innerHTML]="Respuesta.respuesta| safeHtml" >
+                  <!-- Colocar color rojo para respuesta correcta -->
+                  <div *ngIf="Respuesta.valor==1" [innerHTML]="Respuesta.respuesta| safeHtml">
+                  </div>
+                  <div *ngIf="Respuesta.valor==0"  [innerHTML]="Respuesta.respuesta| safeHtml" >
                   </div>
                 </div>
               </ng-container>

@@ -123,11 +123,8 @@ export class ExamenReporteComponent implements OnInit {
   {
     this._ExamenService.ObtenerRespuestasCorrectas2(this.IdExamen).subscribe({
       next:(x)=>{
-        console.log(x)
         this.CantRespuestasCorrectas=x.respuestasCorrectas;
-        console.log(this.CantRespuestasCorrectas)
         this.CantRespuestasIncorrectas=x.respuestasIncorrectas;
-        console.log(this.CantRespuestasIncorrectas)
         this.CantRespuestasIncorrectas2=x.respuestasIncorrectasNivel2;
         this.CantRespuestasCorrectas2=x.respuestasCorrectasNivel2;
 

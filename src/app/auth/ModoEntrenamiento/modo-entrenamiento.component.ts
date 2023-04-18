@@ -84,8 +84,6 @@ export class ModoEntrenamientoComponent implements OnInit {
       this.RegistrarExamenEnvio.nombreExamen=this.userForm.get('NombreSimulacion')?.value;
       this.RegistrarExamenEnvio.tiempo=0,
       this.RegistrarExamenEnvio.idSimuladorTogDominio=0
-
-      console.log(this.RegistrarExamenEnvio)
       this._ExamenService.Registrar(this.RegistrarExamenEnvio).subscribe({
         next:(x)=>{
           this.IdExamen=x.id
@@ -98,7 +96,6 @@ export class ModoEntrenamientoComponent implements OnInit {
     this.TiempoTotalEstudio=0;
     this._ExamenService.ListaExamenesPorModo(2).subscribe({
       next:(x)=>{
-        console.log(x)
         this.ListaEntrenamiento=x
         this.CantMEntrenamiento=x.length;
         this.ListaEntrenamiento.forEach((x:any)=>{
@@ -120,7 +117,6 @@ export class ModoEntrenamientoComponent implements OnInit {
   ListaExamenesIncompletos(){
     this._ExamenService.ListaExamenesIncompletos().subscribe({
       next:(x)=>{
-        console.log(x)
         this.SimulacionesIncompletas=x;
         this.SimulacionesIncompletas.forEach((y:any)=>{
           if(y.idEstadoExamen!=3 && y.idSimuladorTogModo==2){
@@ -139,11 +135,7 @@ export class ModoEntrenamientoComponent implements OnInit {
     this.Promedio2=0;
     this._ExamenService.ListaExamenesConcluidos().subscribe({
       next:(x)=>{
-        console.log(x)
         this.SimulacionesCompletadas=x;
-        console.log(x.filter((x:any)=>x.idSimuladorTogModo==2))
-        console.log(x.filter((x:any)=>x.idSimuladorTogModo==2 && x.idSimuladorTogNivel==1))
-        console.log(x.filter((x:any)=>x.idSimuladorTogModo==2 && x.idSimuladorTogNivel==2))
         this.SimulacionesCompletadas.forEach((y:any)=>{
           if(y.idEstadoExamen==3 && y.idSimuladorTogModo==2 ){
             this.ContSimulacionesCompletadas++;
@@ -186,8 +178,6 @@ export class ModoEntrenamientoComponent implements OnInit {
             }
           });
         }
-        console.log(this.ResultadosPorDominioV2N1)
-        console.log(this.ResultadosPorDominioV2N2)
       }
     })
   }

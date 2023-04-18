@@ -136,7 +136,7 @@ export class ModoExamenComponent implements OnInit {
       this.RegistrarExamenEnvio.nombreExamen=this.userForm.get('NombreSimulacion')?.value;
       this.RegistrarExamenEnvio.tiempo=0,
       this.RegistrarExamenEnvio.idSimuladorTogDominio=0
-      this.RegistrarExamenEnvio.IdTogExamenReferencia=this.IdExamen
+      this.RegistrarExamenEnvio.IdTogExamen=this.IdExamen
       this._ExamenService.Registrar(this.RegistrarExamenEnvio).subscribe({
         next:(x)=>{
         }
@@ -194,16 +194,14 @@ export class ModoExamenComponent implements OnInit {
         var padre:Array<any>=[]
         var hijos:Array<any>=[]
         this.SimulacionesCompletadas.forEach((y:any)=>{
-          console.log(y)
-          if(y.idTogExamenReferencia==null){
+          if(y.idTogExamen==null){
             padre.push(y)
           }else{
             hijos.push(y)
           }
         });
         this.SimulacionesIncompletas.forEach((y:any)=>{
-          console.log(y)
-          if(y.idTogExamenReferencia==null){
+          if(y.idTogExamen==null){
             padre.push(y)
           }else{
             hijos.push(y)
@@ -212,7 +210,7 @@ export class ModoExamenComponent implements OnInit {
         padre.forEach((p:any)=>{
           var existe=false
           hijos.forEach((h:any)=>{
-            if(p.id==h.idTogExamenReferencia){
+            if(p.id==h.idTogExamen){
               existe=true
               p.Hijo=h
               if(p.idEstadoExamen==3 && h.idEstadoExamen==3){
@@ -231,9 +229,6 @@ export class ModoExamenComponent implements OnInit {
             }
           }
         })
-        console.log(padre)
-        console.log(this.GroupSimulacionesCompletadas)
-        console.log(this.GroupSimulacionesIncompletas)
       }
     })
   }
@@ -333,7 +328,6 @@ export class ModoExamenComponent implements OnInit {
             this.Promedio=0;
             this.PorcentajeIntentosAprobados2=0
           }
-          console.log(this.SimulacionesCompletadas)
           this.ListaExamenesIncompletos();
         }
       }

@@ -94,7 +94,6 @@ export class EntrenamientoPreguntaComponent implements OnInit {
       next:(x)=>{
         this.DatosExamen=x;
         this.ListaPreguntas=x.listaPreguntas;
-        console.log(this.ListaPreguntas)
         if(this.ListaPreguntas.length==0){
           this._router.navigate(['/ModoEntrenamiento/EntrenamientoReporte/'+this.IdExamen]);
         }
@@ -230,7 +229,6 @@ EnviarRespuestaNivel2(i:number){
   this.RegistroEnvioRespuesta.desempenio=0,
   this.RegistroEnvioRespuesta.percentil=0,
   this.RegistroEnvioRespuesta.idSimuladorTipoRespuesta=this.ListaPreguntas[i].pregunta.idSimuladorTipoRespuesta,
-  console.log(this.ListaPreguntas)
   this.ListaPreguntas[i].pregunta.respuesta2.forEach((x:any)=>{
     if(x.respuestaSelecionada==1){
       if(this.ContadorPreguntaActual<=this.ContadorAux){
@@ -255,10 +253,9 @@ EnviarRespuestaNivel2(i:number){
     }
 
   })
-  console.log(this.RegistroEnvioRespuesta)
   this._ExamenService.RegistrarRespuestaSeleccionNivel2(this.RegistroEnvioRespuesta).subscribe({
     next:(x)=>{
-     
+
       // this.RespuestaCorrecta=x
       if(x.respuestaMarcada.puntaje==5)
       {
@@ -282,9 +279,7 @@ EnviarRespuestaNivel2(i:number){
         this.MensajeRespuestaNivel2='Menos adecuada o incorrecta';
       }
       this.RespuestaCorrectaNivel2=x.respuestaCorrecta
-      console.log(this.RespuestaCorrectaNivel2)
       this.RespuestaMarcadaNivel2=x.respuestaMarcada
-      console.log(this.RespuestaMarcadaNivel2)
     },
     complete:()=>{
       this.Retroalimentacion=true
